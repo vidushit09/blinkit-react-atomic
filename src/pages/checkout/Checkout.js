@@ -1,14 +1,14 @@
 import React from 'react';
 import data from "../../data/data.json";
-import TopNavbar from '../../organisms/TopNavbar';
-import CategoriesNavbar from '../../molecules/CategoriesNavbar';
-import CheckoutHeader from './atoms/CheckoutHeader';
-import CheckoutSubHeader from './atoms/CheckoutSubHeader';
-import CheckoutItems from './organisms/CheckoutItems';
-import CheckoutFooter from "./molecules/CheckoutFooter";
-import AdvertisementContainer from '../../molecules/AdvertisementsContainer';
-import Disclaimer from "../../atoms/Disclaimer";
-import Footer from "../../organisms/Footer";
+import {TopNavbar} from '../../organisms/topNavbar';
+import {CategoriesNavbar} from '../../molecules/categoriesNavbar';
+import {CheckoutHeader} from './atoms/checkoutHeader';
+import {CheckoutSubHeader} from './atoms/checkoutSubHeader';
+import {CheckoutItems} from './organisms/checkoutItems';
+import {CheckoutFooter} from "./molecules/checkoutFooter";
+import {AdvertisementContainer} from '../../molecules/advertisementContainer';
+import {Disclaimer} from "../../atoms/disclaimer";
+import {Footer} from "../../organisms/footer";
 
 class Checkout extends React.Component{
     render(){
@@ -23,7 +23,7 @@ class Checkout extends React.Component{
                 <CheckoutFooter  cartOriginal={this.props.cartOriginal} cartDiscount={this.props.cartDiscount}  cartCount={this.props.cartCount}/>
             </div>
             <AdvertisementContainer />
-            <Disclaimer />
+            <Disclaimer /> 
             <Footer />
         </>)
     }

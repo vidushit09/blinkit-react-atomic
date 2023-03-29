@@ -1,11 +1,11 @@
 import React from 'react';
 import data from "../../data/data.json";
-import TopNavbar from '../../organisms/TopNavbar';
-import CategoriesNavbar from '../../molecules/CategoriesNavbar';
-import ProductsContainer from './organisms/ProductsContainer';
-import AdvertisementContainer from '../../molecules/AdvertisementsContainer';
-import Disclaimer from "../../atoms/Disclaimer";
-import Footer from "../../organisms/Footer";
+import {TopNavbar} from '../../organisms/topNavbar';
+import {CategoriesNavbar} from '../../molecules/categoriesNavbar';
+import {ProductsContainer} from "./organisms/productsContainer";
+import {AdvertisementContainer} from '../../molecules/advertisementContainer';
+import {Disclaimer} from "../../atoms/disclaimer";
+import {Footer} from "../../organisms/footer";
 
 
 
@@ -17,7 +17,7 @@ class Homepage extends React.Component{
             <CategoriesNavbar categories={data.topTabCategoryList} categoryClick={this.props.categoryClick} />
             <ProductsContainer category={this.props.category} currSubCategory={this.props.currSubCategory} subCategoryOnClick={this.props.subCategoryOnClick} addProduct={this.props.addProduct} deleteProduct={this.props.deleteProduct} getSubCategory={this.props.getSubCategory}/>
             <AdvertisementContainer />
-            <Disclaimer />
+            <Disclaimer /> 
             <Footer />
         </>)
     }
