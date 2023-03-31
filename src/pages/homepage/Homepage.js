@@ -6,6 +6,7 @@ import ProductsContainer from "./organisms/productsContainer";
 import AdvertisementContainer from '../../molecules/advertisementContainer';
 import Disclaimer from "../../atoms/disclaimer";
 import Footer from "../../organisms/footer";
+import PropTypes from 'prop-types';
 
 
 
@@ -22,6 +23,18 @@ class Homepage extends React.Component{
             <Footer />
         </>)
     }
+}
+Homepage.propTypes={
+    category:PropTypes.string,
+    currSubCategory:PropTypes.string,
+    cartCount:PropTypes.number,
+    cartDiscount:PropTypes.number
+  }
+Homepage.defaultProps={
+  category:"Vegetables and Fruits",
+  currSubCategory:"All",
+  cartCount:0,
+  cartDiscount:0
 }
 
 export default Homepage;

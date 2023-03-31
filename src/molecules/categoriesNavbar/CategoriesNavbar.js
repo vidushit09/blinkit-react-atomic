@@ -1,6 +1,7 @@
 import React from "react";
 import Category from "../../atoms/category";
 import CategoryMore from "../../atoms/categoryMore";
+import PropTypes from 'prop-types';
 
 function categoriesNavbar(props){
     let list,i=7;
@@ -30,5 +31,7 @@ function categoriesNavbar(props){
         </ul>
     )
 }
-
+categoriesNavbar.propTypes={
+    categories:PropTypes.arrayOf(PropTypes.string)
+}
 export default categoriesNavbar;

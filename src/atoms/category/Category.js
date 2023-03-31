@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 function category(props){
     const {category, categoryClick}=props;
@@ -9,5 +10,8 @@ function category(props){
         </Link>
     )
 }
+category.propTypes = {
+    category: PropTypes.string
+  };
 
 export default category;

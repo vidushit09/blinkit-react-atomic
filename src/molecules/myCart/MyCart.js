@@ -1,6 +1,7 @@
 import React from "react";
 import DefaultCart from "../../atoms/defaultCart";
 import UpdatedCart from "../../atoms/updatedCart";
+import PropTypes from 'prop-types';
 
 function myCart(props){
     let cart;
@@ -18,6 +19,11 @@ function myCart(props){
         </>
         
     )
+}
+
+myCart.propTypes={
+    cartCount:PropTypes.number,
+    cartDiscount: PropTypes.string
 }
 
 export default myCart;

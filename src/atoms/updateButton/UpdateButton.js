@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 class UpdateButton extends React.Component {
     
@@ -22,5 +23,9 @@ class UpdateButton extends React.Component {
         )
     }
 }
+UpdateButton.propTypes = {
+    id: PropTypes.string
+  };
+
 
 export default UpdateButton;

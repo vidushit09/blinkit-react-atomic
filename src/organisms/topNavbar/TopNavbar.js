@@ -3,6 +3,7 @@ import Logo from "../../atoms/logo";
 import DeliveryDetails from "../../atoms/deliveryDetails";
 import Login from "../../atoms/login";
 import MyCart from "../../molecules/myCart";
+import PropTypes from 'prop-types';
 
 function topNavbar(props){
     const {cartCount, cartDiscount}=props;
@@ -19,5 +20,10 @@ function topNavbar(props){
         </div>
     )
 }
+topNavbar.propTypes={
+    cartCount:PropTypes.number,
+    cartDiscount: PropTypes.string
+}
+
 
 export default topNavbar;

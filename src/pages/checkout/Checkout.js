@@ -9,6 +9,7 @@ import CheckoutFooter   from "./molecules/checkoutFooter";
 import AdvertisementContainer from '../../molecules/advertisementContainer';
 import Disclaimer from "../../atoms/disclaimer";
 import Footer from "../../organisms/footer";
+import PropTypes from 'prop-types';
 
 class Checkout extends React.Component{
     render(){
@@ -29,5 +30,17 @@ class Checkout extends React.Component{
         </>)
     }
 }
+Checkout.propTypes={
+    cartOriginal: PropTypes.number,
+    cartDiscount: PropTypes.number,
+    cartCount:PropTypes.number
+}
+Checkout.defaultProps = {
+    cartOriginal: 0,
+    cartDiscount: 0,
+    cartCount:0
+}
+
+
 
 export default Checkout;

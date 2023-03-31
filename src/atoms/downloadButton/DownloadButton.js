@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function downloadButton(props) {
     let path="http://127.0.0.1:3000/"+props.url;
@@ -11,5 +12,9 @@ function downloadButton(props) {
         
     )
 }
+downloadButton.propTypes = {
+    url: PropTypes.string
+  };
+
 
 export default downloadButton;
