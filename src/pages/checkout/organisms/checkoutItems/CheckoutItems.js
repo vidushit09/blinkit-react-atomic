@@ -1,7 +1,8 @@
 import React from "react";
-import {CheckoutItem} from "../../molecules/checkoutItem";
+import CheckoutItem from "../../molecules/checkoutItem";
 
 function checkoutItems(props){
+    const {addProduct,deleteProduct}=props;
     let itemsMap= new Map();
     let products=[];
     
@@ -11,7 +12,7 @@ function checkoutItems(props){
      for(let [index,value] of itemsMap){
         products.push(
 
-            <CheckoutItem index={index} value={JSON.parse(value)} addProduct={props.addProduct} deleteProduct={props.deleteProduct} />
+            <CheckoutItem index={index} addProduct={addProduct} deleteProduct={deleteProduct} />
         )
      }
 

@@ -1,3 +1,3 @@
 import SubCategoryListItem from "./SubCategoryListItem";
 
-export {SubCategoryListItem};
+export default SubCategoryListItem;

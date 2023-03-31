@@ -1,3 +1,3 @@
 import DownloadButton from "./DownloadButton";
 
-export {DownloadButton};
+export default DownloadButton;

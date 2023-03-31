@@ -1,3 +1,3 @@
 import CheckoutSubHeader from "./CheckoutSubHeader";
 
-export {CheckoutSubHeader};
+export default CheckoutSubHeader;

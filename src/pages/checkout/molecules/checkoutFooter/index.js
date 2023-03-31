@@ -1,3 +1,3 @@
 import CheckoutFooter from "./CheckoutFooter";
 
-export {CheckoutFooter};
+export default CheckoutFooter;

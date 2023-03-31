@@ -1,3 +1,3 @@
 import UpdateButton from "./UpdateButton";
 
-export {UpdateButton};
+export default UpdateButton;

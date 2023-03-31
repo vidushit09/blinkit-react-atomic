@@ -1,7 +1,7 @@
 import React from 'react';
 import "./App.css";
 import { getSubCategory } from './helpers/getSubCategory';
-import {CONSTANTS}  from "./constants.general";
+import {HOMEPAGE_CONSTANTS}  from "./constants.general";
 import { Route, Routes } from "react-router";
 import Homepage from './pages/homepage/Homepage';
 import Checkout from './pages/checkout/Checkout';
@@ -12,8 +12,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: CONSTANTS.DEFAULT_CATEGORY,
-      currSubCategory:CONSTANTS.DEFAULT_SUB_CATEGORY,
+      category: HOMEPAGE_CONSTANTS.DEFAULT_CATEGORY,
+      currSubCategory:HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
       cartCount: 0,
       cartOriginal: 0,
       cartDiscount: 0
@@ -91,7 +91,7 @@ class App extends React.Component {
           <Route
             path="/"
             element={
-              <Homepage category={this.state.category} currSubCategory={this.state.currSubCategory} cartCount={this.state.cartCount} cartDiscount={this.state.cartDiscount} cartOriginal={this.state.cartOriginal}
+              <Homepage category={this.state.category} currSubCategory={this.state.currSubCategory} cartCount={this.state.cartCount} cartDiscount={this.state.cartDiscount}
                 categoryClick={this.categoryClick} subCategoryOnClick={this.subCategoryOnClick} addProduct={this.addProduct} deleteProduct={this.deleteProduct} getSubCategory={getSubCategory}
               />
             }

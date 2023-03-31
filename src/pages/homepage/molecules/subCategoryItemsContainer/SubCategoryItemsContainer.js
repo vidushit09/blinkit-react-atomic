@@ -1,9 +1,9 @@
 import React from "react";
-import {ProductsContainerItemsHeader} from "../../atoms/productsContainerItemsHeader";
-import {ProductsContainerItems} from "../../molecules/productsContainerItems";
+import ProductsContainerItemsHeader from "../../atoms/productsContainerItemsHeader";
+import ProductsContainerItems from "../../molecules/productsContainerItems";
 import { sortByHelper } from "../../helpers/sortByHelper";
 
-class subCategoryItemsContainer extends React.Component{
+class SubCategoryItemsContainer extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -17,14 +17,15 @@ class subCategoryItemsContainer extends React.Component{
         })
     }
     render(){
+        const {products, addProduct, deleteProduct}=this.props;
         return(
             <div className="products-container__items-container">
                 <ProductsContainerItemsHeader sortBy={this.sortBy}/>
-                <ProductsContainerItems products={this.props.products} cart={this.props.cart}  addProduct={this.props.addProduct} deleteProduct={this.props.deleteProduct}/>
+                <ProductsContainerItems products={products} addProduct={addProduct} deleteProduct={deleteProduct}/>
             </div>
                 
         )
     }
 }
 
-export default subCategoryItemsContainer;
+export default SubCategoryItemsContainer;

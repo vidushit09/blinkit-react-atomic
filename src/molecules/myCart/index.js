@@ -1,3 +1,3 @@
 import MyCart from "./MyCart";
 
-export {MyCart};
+export default MyCart;

@@ -1,3 +1,3 @@
 import DeliveryDetails from "./DeliveryDetails";
 
-export {DeliveryDetails};
+export default DeliveryDetails;

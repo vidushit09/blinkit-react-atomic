@@ -1,19 +1,20 @@
 import React from "react";
 
 function checkoutProceed(props){
+    const {cartOriginal,cartDiscount, cartCount}=props;
     return(
         <div className="checkout-proceed-outer">
             <div className="checkout-proceed-inner">
                 <div className="checkout-proceed__left">
                     <div className="items-total">
-                        {props.cartCount} items
+                        {cartCount} items
                     </div>
                     <li>
                         <span className="discounted-price">
-                            ₹{props.cartDiscount}
+                            ₹{cartDiscount}
                         </span>
                         <span className="original-price">
-                            ₹{props.cartOriginal}
+                            ₹{cartOriginal}
                         </span>
                         
                         

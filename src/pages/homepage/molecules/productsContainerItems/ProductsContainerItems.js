@@ -1,10 +1,11 @@
 import React from "react";
-import {Product} from "../product";
+import Product from "../product";
 
 function productsContainerItems(props){
-    let list= props.products.map((product,index)=>{
+    const {products, addProduct, deleteProduct}=props;
+    let list= products.map((product,index)=>{
         return(
-            <Product key={index} product={product} cart={props.cart} addProduct={props.addProduct} deleteProduct={props.deleteProduct}/>
+            <Product key={index} product={product} addProduct={addProduct} deleteProduct={deleteProduct}/>
         )
     })
     return(

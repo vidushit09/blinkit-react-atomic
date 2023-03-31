@@ -1,3 +1,3 @@
 import UpdatedCart from "./UpdatedCart";
 
-export {UpdatedCart};
+export default UpdatedCart;

@@ -1,3 +1,3 @@
 import ProductsContainerItemsHeader from "./ProductsContainerItemsHeader";
 
-export {ProductsContainerItemsHeader};
+export default ProductsContainerItemsHeader;

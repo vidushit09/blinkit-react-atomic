@@ -1,3 +1,3 @@
 import ProductsContainer from "./ProductsContainer";
 
-export {ProductsContainer};
+export default ProductsContainer;

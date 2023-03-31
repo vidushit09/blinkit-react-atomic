@@ -1,3 +1,3 @@
 import AdvertisementContainer from "./AdvertisementContainer";
 
-export {AdvertisementContainer};
+export default AdvertisementContainer;

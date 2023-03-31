@@ -1,3 +1,3 @@
 import SubCategory from "./SubCategory";
 
-export {SubCategory};
+export default SubCategory;

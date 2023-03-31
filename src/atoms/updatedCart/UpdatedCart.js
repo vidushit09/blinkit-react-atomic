@@ -2,17 +2,17 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 function updatedCart(props){
-
+    const {cartCount, cartDiscount}=props;
     return(
         <Link to="/checkout">
         <button className="navbar__mycart--updated">
             <i className="fa fa-shopping-cart"></i>
-            <div className="my-cart-text" style={{display: props.cartCount==0 ? "none" : "block"}}>
+            <div className="my-cart-text" style={{display: cartCount==0 ? "none" : "block"}}>
                 <div>
-                    {props.cartCount} items
+                    {cartCount} items
                 </div>
                 <div>
-                    ₹ {props.cartDiscount}
+                    ₹ {cartDiscount}
                 </div>
             </div>
         </button>

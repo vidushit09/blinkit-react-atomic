@@ -1,3 +1,3 @@
 import ProductsContainerItems from "./ProductsContainerItems";
 
-export {ProductsContainerItems};
+export default ProductsContainerItems;

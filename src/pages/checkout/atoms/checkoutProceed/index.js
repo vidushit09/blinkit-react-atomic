@@ -1,3 +1,3 @@
 import CheckoutProceed from "./CheckoutProceed";
 
-export {CheckoutProceed};
+export default CheckoutProceed;

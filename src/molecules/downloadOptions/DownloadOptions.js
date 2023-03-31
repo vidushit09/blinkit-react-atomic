@@ -1,5 +1,5 @@
 import React from "react";
-import { DownloadButton } from "../../atoms/downloadButton";
+import DownloadButton from "../../atoms/downloadButton";
 
 function downloadOptions() {
     return (

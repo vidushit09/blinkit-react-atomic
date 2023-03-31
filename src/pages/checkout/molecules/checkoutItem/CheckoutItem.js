@@ -1,9 +1,10 @@
 import React from "react";
 import data from "../../../../data/data.json"
-import {UpdateButton} from "../../../../atoms/updateButton"
+import UpdateButton from "../../../../atoms/updateButton"
 
 function checkoutItem(props){
-    let item= data.products.filter(obj=>obj.id==props.index)[0];
+    const {index,addProduct,deleteProduct}=props;
+    let item= data.products.filter(obj=>obj.id==index)[0];
     let thumbnail="http://127.0.0.1:3000/"+ item.thumbnail;
     let discount= Number(item.discount);
     let price=Number(item.price);
@@ -12,22 +13,22 @@ function checkoutItem(props){
     let name=item.name;
 
     function firstAdd(event){
-        props.addProduct(event.target.parentNode)
+        addProduct(event.target.parentNode)
 
      
      }
     function plusone(event){
-         props.addProduct(event.target.parentNode.parentNode)
+         addProduct(event.target.parentNode.parentNode)
      }
     function minusone(event){
-         props.deleteProduct(event.target.parentNode.parentNode)
+         deleteProduct(event.target.parentNode.parentNode)
      }
 
     
     return(
         <li className="checkout-item">
             <div className="checkout-item__left">
-                <div className="product-id" style={{ display: "none" }}>{props.index}</div>
+                <div className="product-id" style={{ display: "none" }}>{index}</div>
                 <div className="checkout-item--img">
                     <img src={thumbnail} />
                 </div>
@@ -50,7 +51,7 @@ function checkoutItem(props){
 
             </div>
             <div className="checkout-item__right">
-                <UpdateButton id={props.index} firstAdd={firstAdd} plusone={plusone} minusone={minusone}/>
+                <UpdateButton id={index} firstAdd={firstAdd} plusone={plusone} minusone={minusone}/>
             </div>
             
             

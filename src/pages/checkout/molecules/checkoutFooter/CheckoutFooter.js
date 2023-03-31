@@ -1,7 +1,8 @@
 import React from "react";
-import {CheckoutProceed} from "../../atoms/checkoutProceed";
+import CheckoutProceed from "../../atoms/checkoutProceed";
 
 function checkoutFooter(props){
+    const {cartOriginal,cartDiscount, cartCount}=props;
     return(
         <div className="checkout-footer">
             <div className="mrp-details">
@@ -9,7 +10,7 @@ function checkoutFooter(props){
                     MRP
                 </div>
                 <div className="mrp">
-                    ₹{props.cartOriginal}
+                    ₹{cartOriginal}
                 </div>
             </div>
             <div className="discount-details">
@@ -17,7 +18,7 @@ function checkoutFooter(props){
                     Product discount
                 </div>
                 <div className="discount">
-                    -₹{(props.cartOriginal-props.cartDiscount).toFixed(2)}
+                    -₹{(cartOriginal-cartDiscount).toFixed(2)}
                 </div>
             </div>
             <div className="delivery-details">
@@ -39,13 +40,13 @@ function checkoutFooter(props){
                     Grand total
                 </div>
                 <div className="total">
-                    ₹{props.cartDiscount}
+                    ₹{cartDiscount}
                 </div>
             </div>
             <div className="coupons-disclaimer">
                 Coupons are only applicable on Blinkit app
             </div>
-            <CheckoutProceed cartCount={props.cartCount} cartOriginal={props.cartOriginal} cartDiscount={props.cartDiscount}/>
+            <CheckoutProceed cartCount={cartCount} cartOriginal={cartOriginal} cartDiscount={cartDiscount}/>
             
         </div>
     )

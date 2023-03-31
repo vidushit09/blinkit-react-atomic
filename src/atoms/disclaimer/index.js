@@ -1,3 +1,3 @@
 import Disclaimer from "./Disclaimer";
 
-export {Disclaimer};
+export default Disclaimer;

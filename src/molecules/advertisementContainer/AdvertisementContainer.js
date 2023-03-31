@@ -1,5 +1,5 @@
 import React from "react";
-import {AdvertisementCards} from "../../atoms/advertisementCards";
+import AdvertisementCards from "../../atoms/advertisementCards";
 
 function advertisementContainer(){
     return(

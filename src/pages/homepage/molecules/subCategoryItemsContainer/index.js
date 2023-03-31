@@ -1,3 +1,3 @@
 import SubCategoryItemsContainer from "./SubCategoryItemsContainer";
 
-export {SubCategoryItemsContainer};
+export default SubCategoryItemsContainer;

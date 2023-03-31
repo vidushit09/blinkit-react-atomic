@@ -1,3 +1,3 @@
 import CheckoutHeader from "./CheckoutHeader";
 
-export {CheckoutHeader};
+export default CheckoutHeader;

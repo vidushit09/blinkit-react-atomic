@@ -1,3 +1,3 @@
 import CategoriesNavbar from "./CategoriesNavbar";
 
-export {CategoriesNavbar};
+export default CategoriesNavbar;

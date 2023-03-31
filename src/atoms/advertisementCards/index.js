@@ -1,3 +1,3 @@
 import AdvertisementCards from "./AdvertisementCards";
 
-export {AdvertisementCards};
+export default AdvertisementCards;

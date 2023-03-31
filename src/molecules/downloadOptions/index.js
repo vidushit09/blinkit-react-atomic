@@ -1,3 +1,3 @@
 import DownloadOptions from "./DownloadOptions";
 
-export {DownloadOptions};
+export default DownloadOptions;
