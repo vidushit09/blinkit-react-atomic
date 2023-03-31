@@ -1,13 +1,9 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import UpdateButton from "../../../../atoms/updateButton";
 import { discountedPrice } from "../../helpers/discountedPrice";
 
 
 class Product extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     firstAdd=(event)=>{
        this.props.addProduct(event.target.parentNode)
     
@@ -20,7 +16,7 @@ class Product extends React.Component {
     }
     
     render() {
-        const {product, addProduct, deleteProduct}=this.props;
+        const {product}=this.props;
         let path = "http://127.0.0.1:3000/" + product.thumbnail;        
         return (
             <div className="products-container__item">

@@ -3,18 +3,18 @@ import CheckoutItem from "../../molecules/checkoutItem";
 
 function checkoutItems(props){
     const {addProduct,deleteProduct}=props;
-    let itemsMap= new Map();
+    let itemsIndex=[];
     let products=[];
     
     Object.keys(window.localStorage).forEach(function(key){
-        itemsMap.set(key,window.localStorage.getItem(key));
+        itemsIndex.push(key);
      });
-     for(let [index,value] of itemsMap){
+     itemsIndex.forEach(index => {
         products.push(
-
             <CheckoutItem index={index} addProduct={addProduct} deleteProduct={deleteProduct} />
         )
-     }
+     });
+
 
     return(
         <ul className="checkout-items-list">

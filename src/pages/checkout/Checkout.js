@@ -12,7 +12,7 @@ import Footer from "../../organisms/footer";
 
 class Checkout extends React.Component{
     render(){
-        const {category, cartCount,cartDiscount,cartOriginal, categoryClick, addProduct, deleteProduct}= this.props;
+        const {cartCount,cartDiscount,cartOriginal, categoryClick, addProduct, deleteProduct}= this.props;
         return(
         <>
             <TopNavbar cartCount={cartCount} cartDiscount={cartDiscount}/>

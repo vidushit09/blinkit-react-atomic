@@ -99,7 +99,7 @@ class App extends React.Component {
           <Route
             path="/checkout"
             element={
-              <Checkout category={this.state.category} cartCount={this.state.cartCount} cartDiscount={this.state.cartDiscount} cartOriginal={this.state.cartOriginal}
+              <Checkout cartCount={this.state.cartCount} cartDiscount={this.state.cartDiscount} cartOriginal={this.state.cartOriginal}
                 categoryClick={this.categoryClick} addProduct={this.addProduct} deleteProduct={this.deleteProduct}
               />
             }
