@@ -1,6 +1,7 @@
 import React from "react";
 import  Copyright from "../../atoms/copyright";
 import  DownloadOptions  from "../../molecules/downloadOptions";
+import "./style.css";
 
 function footer() {
     return (

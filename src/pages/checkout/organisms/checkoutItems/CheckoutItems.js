@@ -1,5 +1,6 @@
 import React from "react";
 import CheckoutItem from "../../molecules/checkoutItem";
+import "./style.css";
 
 function checkoutItems(props){
     const {addProduct,deleteProduct}=props;

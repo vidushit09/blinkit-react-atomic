@@ -1,4 +1,5 @@
 import React  from "react";
+import "./style.css";
 
 function subCategoryListItem(props){
     const {subCategory, currSubCategory,subCategoryOnClick}=props;

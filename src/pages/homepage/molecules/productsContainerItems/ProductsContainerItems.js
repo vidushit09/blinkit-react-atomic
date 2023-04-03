@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "../product";
+import "./style.css";
 
 function productsContainerItems(props){
     const {products, addProduct, deleteProduct}=props;

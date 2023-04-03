@@ -1,6 +1,7 @@
 import React from "react";
 import data from "../../../../data/data.json"
-import UpdateButton from "../../../../atoms/updateButton"
+import UpdateButton from "../../../../atoms/updateButton";
+import "./style.css";
 
 function checkoutItem(props){
     const {index,addProduct,deleteProduct}=props;
@@ -13,9 +14,7 @@ function checkoutItem(props){
     let name=item.name;
 
     function firstAdd(event){
-        addProduct(event.target.parentNode)
-
-     
+        addProduct(event.target.parentNode) 
      }
     function plusone(event){
          addProduct(event.target.parentNode.parentNode)

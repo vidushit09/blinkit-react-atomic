@@ -2,6 +2,7 @@ import React from "react";
 import Category from "../../atoms/category";
 import CategoryMore from "../../atoms/categoryMore";
 import PropTypes from 'prop-types';
+import "./style.css";
 
 function categoriesNavbar(props){
     let list,i=7;

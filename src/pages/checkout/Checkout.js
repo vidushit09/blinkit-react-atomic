@@ -10,6 +10,7 @@ import AdvertisementContainer from '../../molecules/advertisementContainer';
 import Disclaimer from "../../atoms/disclaimer";
 import Footer from "../../organisms/footer";
 import PropTypes from 'prop-types';
+import "./style.css";
 
 class Checkout extends React.Component{
     render(){

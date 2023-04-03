@@ -1,5 +1,6 @@
 import React from "react";
 import SubCategoryListItem from "../../atoms/subCategoryListItem";
+import "./style.css";
 
 class subCategory extends React.Component{
 

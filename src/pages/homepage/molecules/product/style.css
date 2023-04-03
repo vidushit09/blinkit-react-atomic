@@ -1,0 +1,55 @@
+
+.products-container__item{
+    padding: 1.5rem;
+    border: 0.07rem solid #d6d6d6;
+    width: 18.53rem;
+  }
+  .products-container__item-image{
+    position: relative;
+    height: 13rem;
+  }
+  
+  .product-container__item--img{
+    width: 70%;
+    display: block;
+    margin: auto;
+    height: 84%;
+  }
+  .products-container__discount{
+    background: rgb(37, 111, 239);
+    color: white;
+    padding: 0.22rem;
+    border-radius: 0.6rem;
+    position: absolute;
+    font-size: 1.1rem;
+  }
+  
+  .products-container__sourced-at{
+    background: rgb(235, 255, 239);
+    float: right;
+    color: rgb(58, 183, 87);
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+  .products-container__item-name{
+    font-size: 1.68rem;
+  }
+  .products-container__item-weight{
+    font-size: 1.34rem;
+    margin-top: 1.5rem;
+    color: #666666;
+  }
+  .products-container__item-footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+  }
+  .products-container__actual-price{
+    font-size: 1.34rem;
+    text-decoration: line-through;
+    color: rgb(153, 153, 153);
+  }
+  .products-container__discounted-price{
+    font-size: 1.51rem;
+  }
+  

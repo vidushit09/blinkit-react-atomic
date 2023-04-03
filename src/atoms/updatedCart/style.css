@@ -1,0 +1,22 @@
+
+.navbar__mycart--updated{
+    background-color: rgb(12, 131, 31);
+    width: 11rem;
+    padding: 0.8rem 1rem;
+    color: white;
+    margin: 0rem 4.48rem 0rem 4.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .navbar__mycart--updated i{
+    font-size: 1.68rem;
+  }
+  .navbar__mycart--updated:hover{
+    cursor: pointer;
+  }
+  

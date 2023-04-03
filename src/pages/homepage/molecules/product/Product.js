@@ -1,6 +1,7 @@
 import React from "react";
 import UpdateButton from "../../../../atoms/updateButton";
 import { discountedPrice } from "../../helpers/discountedPrice";
+import "./style.css";
 
 
 class Product extends React.Component {

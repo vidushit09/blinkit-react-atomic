@@ -1,5 +1,6 @@
 import React from "react";
 import DownloadButton from "../../atoms/downloadButton";
+import "./style.css";
 
 function downloadOptions() {
     return (

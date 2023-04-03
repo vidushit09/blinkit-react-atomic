@@ -2,7 +2,7 @@ import React from "react";
 import { getItems } from "../../helpers/getItems";
 import SubCategory from "../../molecules/subCategory";
 import SubCategoryItemsContainer from "../../molecules/subCategoryItemsContainer";
-
+import "./style.css";
 
 class ProductsContainer extends React.Component{
 

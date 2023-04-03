@@ -4,6 +4,7 @@ import DeliveryDetails from "../../atoms/deliveryDetails";
 import Login from "../../atoms/login";
 import MyCart from "../../molecules/myCart";
 import PropTypes from 'prop-types';
+import "./style.css";
 
 function topNavbar(props){
     const {cartCount, cartDiscount}=props;

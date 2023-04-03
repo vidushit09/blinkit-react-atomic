@@ -1,5 +1,6 @@
 import React from "react";
 import CheckoutProceed from "../../atoms/checkoutProceed";
+import "./style.css";
 
 function checkoutFooter(props){
     const {cartOriginal,cartDiscount, cartCount}=props;
