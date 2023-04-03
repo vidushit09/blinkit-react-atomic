@@ -1,3 +1,6 @@
+:root{
+  font-size: 10px;
+}
 body{
   margin: 0rem;
   padding: 0rem;
@@ -6,10 +9,6 @@ body{
 a{
   text-decoration: none;
 }
-:root{
-  font-size: 10px;
-}
-
 .display-flex{
   display: flex;
   align-items: center;
