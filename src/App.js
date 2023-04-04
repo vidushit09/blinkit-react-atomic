@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import { getSubCategory } from "./helpers/getSubCategory";
 import { HOMEPAGE_CONSTANTS } from "./constants/constants.general";
 import { Route, Routes } from "react-router";
 import Homepage from "./pages/homepage";
@@ -17,6 +16,7 @@ class App extends React.Component {
       cartCount: 0,
       cartOriginal: 0,
       cartDiscount: 0,
+      cartItems: new Map(),
     };
   }
   categoryClick = (event) => {
@@ -31,63 +31,47 @@ class App extends React.Component {
     });
   };
   addProduct = (product) => {
-    let obj, tempCartDiscount, tempCartOriginal;
-    if (window.localStorage.getItem(product.id)) {
-      obj = JSON.parse(window.localStorage.getItem(product.id));
-      let count = Number(obj.quantity);
-      obj.quantity = count + 1;
-      tempCartOriginal = (
-        Number(this.state.cartOriginal) + obj.originalPrice
-      ).toFixed(2);
-      tempCartDiscount = (
-        Number(this.state.cartDiscount) + obj.discountedPrice
-      ).toFixed(2);
-    } else {
-      const discountedPrice = Number(
-        calculateDiscountedPrice(product.price, product.discount)
-      );
-      const originalPrice = Number(product.price);
+    console.log(product);
+    let obj;
+    let tempCartItems = this.state.cartItems;
+
+    if (tempCartItems.get(product.id) == undefined) {
       obj = {
-        id:product.id,
         name: product.name,
-        discountedPrice: discountedPrice,
-        originalPrice: originalPrice,
+        original: product.price,
+        discountedPrice: calculateDiscountedPrice(
+          product.price,
+          product.discount
+        ),
+        discount: product.discount,
         quantity: 1,
+        thumbnail: product.thumbnail,
       };
-      tempCartOriginal = (
-        Number(this.state.cartOriginal) + Number(originalPrice)
-      ).toFixed(2);
-      tempCartDiscount = (
-        Number(this.state.cartDiscount) + Number(discountedPrice)
-      ).toFixed(2);
+      tempCartItems.set(product.id, obj);
+    } else {
+      obj = tempCartItems.get(product.id);
+      obj["quantity"] = Number(obj["quantity"]) + 1;
+      tempCartItems.set(product.id, obj);
     }
     this.setState({
-      cartCount: this.state.cartCount + 1,
-      cartOriginal: tempCartOriginal,
-      cartDiscount: tempCartDiscount,
+      cartItems: tempCartItems,
     });
-    window.localStorage.setItem(product.id, JSON.stringify(obj));
+    console.log(this.state.cartItems);
   };
 
   deleteProduct = (product) => {
-    let obj = JSON.parse(window.localStorage.getItem(product.id));
-    let count = Number(obj.quantity);
-    if (count == 1) {
-      window.localStorage.removeItem(product.id);
+    let deleteProduct = this.state.cartItems.get(product.id);
+    let tempCartItems;
+    if (deleteProduct["quantity"] == 1) {
+      tempCartItems = this.state.cartItems;
+      tempCartItems.delete(product.id);
     } else {
-      obj.quantity = count - 1;
-      window.localStorage.setItem(product.id, JSON.stringify(obj));
+      tempCartItems = this.state.cartItems;
+      let quantity = Number(tempCartItems.get(product.id)["quantity"]) - 1;
+      tempCartItems.get(product.id)["quantity"] = quantity;
     }
-    let tempCartOriginal = (
-      Number(this.state.cartOriginal) - Number(obj.originalPrice)
-    ).toFixed(2);
-    let tempCartDiscount = (
-      Number(this.state.cartDiscount) - Number(obj.discountedPrice)
-    ).toFixed(2);
     this.setState({
-      cartCount: this.state.cartCount - 1,
-      cartOriginal: tempCartOriginal,
-      cartDiscount: tempCartDiscount,
+      cartItems: tempCartItems,
     });
   };
 
@@ -100,8 +84,7 @@ class App extends React.Component {
             <Homepage
               category={this.state.category}
               currSubCategory={this.state.currSubCategory}
-              cartCount={this.state.cartCount}
-              cartDiscount={this.state.cartDiscount}
+              cartItems={this.state.cartItems}
               categoryClick={this.categoryClick}
               subCategoryOnClick={this.subCategoryOnClick}
               addProduct={this.addProduct}
@@ -113,9 +96,7 @@ class App extends React.Component {
           path="/checkout"
           element={
             <Checkout
-              cartCount={this.state.cartCount}
-              cartDiscount={this.state.cartDiscount}
-              cartOriginal={this.state.cartOriginal}
+              cartItems={this.state.cartItems}
               categoryClick={this.categoryClick}
               addProduct={this.addProduct}
               deleteProduct={this.deleteProduct}

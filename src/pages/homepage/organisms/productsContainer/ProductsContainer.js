@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 function ProductsContainer(props) {
   const {
     category,
+    cartItems,
     currSubCategory,
     subCategoryOnClick,
     addProduct,
@@ -22,6 +23,7 @@ function ProductsContainer(props) {
         subCategoryOnClick={subCategoryOnClick}
       />
       <SubCategoryItemsContainer
+        cartItems={cartItems}
         products={getItems(currSubCategory, category)}
         addProduct={addProduct}
         deleteProduct={deleteProduct}

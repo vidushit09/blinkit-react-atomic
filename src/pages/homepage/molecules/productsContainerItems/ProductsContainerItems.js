@@ -4,10 +4,11 @@ import "./productsContainerItems.css";
 import PropTypes from "prop-types";
 
 function ProductsContainerItems(props) {
-  const { products, addProduct, deleteProduct } = props;
+  const { cartItems, products, addProduct, deleteProduct } = props;
   let list = products.map((product) => {
     return (
       <Product
+        cartItems={cartItems}
         key={product.id}
         product={product}
         addProduct={addProduct}

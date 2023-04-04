@@ -12,8 +12,7 @@ function Homepage(props) {
   const {
     category,
     currSubCategory,
-    cartCount,
-    cartDiscount,
+    cartItems,
     categoryClick,
     subCategoryOnClick,
     addProduct,
@@ -21,13 +20,14 @@ function Homepage(props) {
   } = props;
   return (
     <>
-      <TopNavbar cartCount={cartCount} cartDiscount={cartDiscount} />
+      <TopNavbar cartItems={cartItems} />
       <CategoriesNavbar
         categories={data.topTabCategoryList}
         categoryClick={categoryClick}
       />
       <ProductsContainer
         category={category}
+        cartItems={cartItems}
         currSubCategory={currSubCategory}
         subCategoryOnClick={subCategoryOnClick}
         addProduct={addProduct}

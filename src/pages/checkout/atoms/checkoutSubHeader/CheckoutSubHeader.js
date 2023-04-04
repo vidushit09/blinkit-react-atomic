@@ -1,6 +1,7 @@
 import React from "react";
 import "./checkoutSubHeader.css";
 import PropTypes from "prop-types";
+import { getCartCount } from "../../../../helpers/getCartCount";
 
 function CheckoutSubHeader(props){
     return (
@@ -9,7 +10,7 @@ function CheckoutSubHeader(props){
                 Delivery in 10 minutes
             </div>
             <div className="items-count">
-                {props.cartCount} items
+                {getCartCount(props.cartItems)} items
             </div>
         </>
     )

@@ -1,25 +1,22 @@
 import React from "react";
+import SubCategoryItemsContainer from "../../../homepage/molecules/subCategoryItemsContainer";
 import CheckoutItem from "../../molecules/checkoutItem";
 import "./checkoutItems.css";
 
 function CheckoutItems(props){
-    const {addProduct,deleteProduct}=props;
-    let productsList=[];
+    const {cartItems,addProduct,deleteProduct}=props;
     let products=[];
     
-    Object.keys(window.localStorage).forEach(function(key){
-        products.push(JSON.parse(window.localStorage.getItem(key)));
-     });
-     products.forEach(product => {
-        productsList.push(
-            <CheckoutItem product={product} addProduct={addProduct} deleteProduct={deleteProduct} />
+    cartItems.forEach((product,key)=>{
+        console.log(key);
+        products.push(
+            <CheckoutItem cartItems={cartItems} product={product} index={key} addProduct={addProduct} deleteProduct={deleteProduct} />
         )
-     });
-
+    })
 
     return(
         <ul className="checkout-items-list">
-            {productsList}
+            {products}
         </ul>
     )
 }

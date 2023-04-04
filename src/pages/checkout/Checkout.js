@@ -14,29 +14,25 @@ import "./checkout.css";
 
 function Checkout(props) {
   const {
-    cartCount,
-    cartDiscount,
-    cartOriginal,
+    cartItems,
     categoryClick,
     addProduct,
     deleteProduct,
   } = props;
   return (
     <>
-      <TopNavbar cartCount={cartCount} cartDiscount={cartDiscount} />
+      <TopNavbar cartItems={cartItems}/> 
       <CategoriesNavbar
         categories={data.topTabCategoryList}
         categoryClick={categoryClick}
       />
       <div className="checkout">
         <CheckoutHeader />
-        <CheckoutSubHeader cartCount={cartCount} />
-        <CheckoutItems addProduct={addProduct} deleteProduct={deleteProduct} />
+        <CheckoutSubHeader cartItems={cartItems} />
+        <CheckoutItems cartItems={cartItems} addProduct={addProduct} deleteProduct={deleteProduct} />
         <CheckoutFooter
-          cartOriginal={cartOriginal}
-          cartDiscount={cartDiscount}
-          cartCount={cartCount}
-        />
+          cartItems={cartItems}
+        /> 
       </div>
       <AdvertisementContainer />
       <Disclaimer />

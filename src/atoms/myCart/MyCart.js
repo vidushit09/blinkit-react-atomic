@@ -7,14 +7,13 @@ import { cartInner } from "./helpers/cartInner";
 import "./myCart.css";
 
 function MyCart(props) {
-  const { cartCount, cartDiscount } = props;
-
+  const { cartItems } = props;
   return (
     <>
       <Link to="/checkout">
         <button className="navbar__mycart">
           <i className="fa fa-shopping-cart"></i>
-          {cartInner(cartCount,cartDiscount)}
+          {cartInner(cartItems)}
         </button>
       </Link>
     </>

@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import "./topNavbar.css";
 
 function TopNavbar(props) {
-  const { cartCount, cartDiscount } = props;
+  const { cartItems } = props;
   return (
     <div className="navbar display-flex">
       <div className="navbar__left display-flex">
@@ -16,7 +16,7 @@ function TopNavbar(props) {
       </div>
       <div className="navbar__right">
         <Login />
-        <MyCart cartCount={cartCount} cartDiscount={cartDiscount} />
+        <MyCart cartItems={cartItems} />
       </div>
     </div>
   );
