@@ -13,9 +13,6 @@ class App extends React.Component {
     this.state = {
       category: data.topTabCategoryList[0],
       currSubCategory: HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
-      cartCount: 0,
-      cartOriginal: 0,
-      cartDiscount: 0,
       cartItems: new Map(),
     };
   }
