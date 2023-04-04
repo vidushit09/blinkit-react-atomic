@@ -1,27 +1,27 @@
 import React from "react";
 import CheckoutItem from "../../molecules/checkoutItem";
-import "./style.css";
+import "./checkoutItems.css";
 
-function checkoutItems(props){
+function CheckoutItems(props){
     const {addProduct,deleteProduct}=props;
-    let itemsIndex=[];
+    let productsList=[];
     let products=[];
     
     Object.keys(window.localStorage).forEach(function(key){
-        itemsIndex.push(key);
+        products.push(JSON.parse(window.localStorage.getItem(key)));
      });
-     itemsIndex.forEach(index => {
-        products.push(
-            <CheckoutItem index={index} addProduct={addProduct} deleteProduct={deleteProduct} />
+     products.forEach(product => {
+        productsList.push(
+            <CheckoutItem product={product} addProduct={addProduct} deleteProduct={deleteProduct} />
         )
      });
 
 
     return(
         <ul className="checkout-items-list">
-            {products}
+            {productsList}
         </ul>
     )
 }
 
-export default checkoutItems;
+export default CheckoutItems;

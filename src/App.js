@@ -1,115 +1,130 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
-import { getSubCategory } from './helpers/getSubCategory';
-import {HOMEPAGE_CONSTANTS}  from "./constants.general";
+import { getSubCategory } from "./helpers/getSubCategory";
+import { HOMEPAGE_CONSTANTS } from "./constants/constants.general";
 import { Route, Routes } from "react-router";
-import Homepage from './pages/homepage/Homepage';
-import Checkout from './pages/checkout/Checkout';
-
+import Homepage from "./pages/homepage";
+import Checkout from "./pages/checkout";
+import data from "./data/data.json";
+import { calculateDiscountedPrice } from "./helpers/calculateDiscountedPrice.js";
 
 class App extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
-      category: HOMEPAGE_CONSTANTS.DEFAULT_CATEGORY,
-      currSubCategory:HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
+      category: data.topTabCategoryList[0],
+      currSubCategory: HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
       cartCount: 0,
       cartOriginal: 0,
-      cartDiscount: 0
+      cartDiscount: 0,
     };
   }
-  categoryClick=(event)=>{
+  categoryClick = (event) => {
     this.setState({
       category: event.target.innerText,
-      currSubCategory: "All"  
+      currSubCategory: "All",
     });
-
-  }
-  subCategoryOnClick=(event)=>{
+  };
+  subCategoryOnClick = (event) => {
     this.setState({
-        currSubCategory: event.target.innerText
-      })
-  }
-  addProduct=(parentNode)=>{
-    let productId=parentNode.parentNode.getElementsByClassName("product-id")[0].innerText;
+      currSubCategory: event.target.innerText,
+    });
+  };
+  addProduct = (product) => {
     let obj, tempCartDiscount, tempCartOriginal;
-    if(window.localStorage.getItem(productId)){
-      obj = JSON.parse(window.localStorage.getItem(productId));
-      let count=Number(obj.quantity);
-      obj.quantity=count+1;
-      tempCartOriginal=(Number(this.state.cartOriginal)+obj.originalPrice).toFixed(2);
-      tempCartDiscount=(Number(this.state.cartDiscount)+obj.discountedPrice).toFixed(2);
-    }
-    else{
-      const discountedPrice = Number(parentNode.getElementsByClassName("products-container__discounted-price")[0].innerText.slice(1));
-      const originalPrice= Number(parentNode.getElementsByClassName("products-container__actual-price ")[0].innerText.slice(1));
+    if (window.localStorage.getItem(product.id)) {
+      obj = JSON.parse(window.localStorage.getItem(product.id));
+      let count = Number(obj.quantity);
+      obj.quantity = count + 1;
+      tempCartOriginal = (
+        Number(this.state.cartOriginal) + obj.originalPrice
+      ).toFixed(2);
+      tempCartDiscount = (
+        Number(this.state.cartDiscount) + obj.discountedPrice
+      ).toFixed(2);
+    } else {
+      const discountedPrice = Number(
+        calculateDiscountedPrice(product.price, product.discount)
+      );
+      const originalPrice = Number(product.price);
       obj = {
-          name: parentNode.parentNode.getElementsByClassName("products-container__item-name")[0].innerText,
-          discountedPrice: discountedPrice,
-          originalPrice: originalPrice,
-          quantity: 1
-      }
-      tempCartOriginal=(Number(this.state.cartOriginal)+Number(originalPrice)).toFixed(2);
-      tempCartDiscount=(Number(this.state.cartDiscount)+Number(discountedPrice)).toFixed(2);
-      
+        id:product.id,
+        name: product.name,
+        discountedPrice: discountedPrice,
+        originalPrice: originalPrice,
+        quantity: 1,
+      };
+      tempCartOriginal = (
+        Number(this.state.cartOriginal) + Number(originalPrice)
+      ).toFixed(2);
+      tempCartDiscount = (
+        Number(this.state.cartDiscount) + Number(discountedPrice)
+      ).toFixed(2);
     }
     this.setState({
-      cartCount: this.state.cartCount+1,
+      cartCount: this.state.cartCount + 1,
       cartOriginal: tempCartOriginal,
-      cartDiscount: tempCartDiscount
-    })
-    window.localStorage.setItem(productId, JSON.stringify(obj));
-  }
+      cartDiscount: tempCartDiscount,
+    });
+    window.localStorage.setItem(product.id, JSON.stringify(obj));
+  };
 
-  deleteProduct=(parentNode)=>{
-    let productId=parentNode.parentNode.getElementsByClassName("product-id")[0].innerText;
-    let obj=JSON.parse(window.localStorage.getItem(productId));
-    let count=Number(obj.quantity);
-    if(count==1){ 
-      window.localStorage.removeItem(productId);
+  deleteProduct = (product) => {
+    let obj = JSON.parse(window.localStorage.getItem(product.id));
+    let count = Number(obj.quantity);
+    if (count == 1) {
+      window.localStorage.removeItem(product.id);
+    } else {
+      obj.quantity = count - 1;
+      window.localStorage.setItem(product.id, JSON.stringify(obj));
     }
-    else{
-      obj.quantity=count-1;
-      window.localStorage.setItem(productId,JSON.stringify(obj));
-    }
-    let tempCartOriginal=(Number(this.state.cartOriginal)-Number(obj.originalPrice)).toFixed(2);
-    let tempCartDiscount=(Number(this.state.cartDiscount)-Number(obj.discountedPrice)).toFixed(2);
+    let tempCartOriginal = (
+      Number(this.state.cartOriginal) - Number(obj.originalPrice)
+    ).toFixed(2);
+    let tempCartDiscount = (
+      Number(this.state.cartDiscount) - Number(obj.discountedPrice)
+    ).toFixed(2);
     this.setState({
-      cartCount: this.state.cartCount-1,
+      cartCount: this.state.cartCount - 1,
       cartOriginal: tempCartOriginal,
-      cartDiscount: tempCartDiscount
-    })
-  }
-  
+      cartDiscount: tempCartDiscount,
+    });
+  };
 
-  
   render() {
     return (
-      <>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Homepage category={this.state.category} currSubCategory={this.state.currSubCategory} cartCount={this.state.cartCount} cartDiscount={this.state.cartDiscount}
-                categoryClick={this.categoryClick} subCategoryOnClick={this.subCategoryOnClick} addProduct={this.addProduct} deleteProduct={this.deleteProduct} getSubCategory={getSubCategory}
-              />
-            }
-          />
-          <Route
-            path="/checkout"
-            element={
-              <Checkout cartCount={this.state.cartCount} cartDiscount={this.state.cartDiscount} cartOriginal={this.state.cartOriginal}
-                categoryClick={this.categoryClick} addProduct={this.addProduct} deleteProduct={this.deleteProduct}
-              />
-            }
-          />
-        </Routes>
-      </>
-    )
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Homepage
+              category={this.state.category}
+              currSubCategory={this.state.currSubCategory}
+              cartCount={this.state.cartCount}
+              cartDiscount={this.state.cartDiscount}
+              categoryClick={this.categoryClick}
+              subCategoryOnClick={this.subCategoryOnClick}
+              addProduct={this.addProduct}
+              deleteProduct={this.deleteProduct}
+            />
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <Checkout
+              cartCount={this.state.cartCount}
+              cartDiscount={this.state.cartDiscount}
+              cartOriginal={this.state.cartOriginal}
+              categoryClick={this.categoryClick}
+              addProduct={this.addProduct}
+              deleteProduct={this.deleteProduct}
+            />
+          }
+        />
+      </Routes>
+    );
   }
 }
-
-
 
 export default App;

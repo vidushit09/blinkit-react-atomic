@@ -1,20 +1,19 @@
-:root{
+:root {
   font-size: 10px;
 }
-body{
+body {
   margin: 0rem;
   padding: 0rem;
   font-family: sans-serif;
 }
-a{
+a {
   text-decoration: none;
 }
-.display-flex{
+.display-flex {
   display: flex;
   align-items: center;
 }
 
-button:hover{
+button:hover {
   cursor: pointer;
 }
-

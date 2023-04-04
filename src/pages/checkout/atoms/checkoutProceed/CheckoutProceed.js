@@ -1,7 +1,8 @@
 import React from "react";
-import "./style.css";
+import "./checkoutProceed.css";
+import PropTypes from "prop-types";
 
-function checkoutProceed(props){
+function CheckoutProceed(props){
     const {cartOriginal,cartDiscount, cartCount}=props;
     return(
         <div className="checkout-proceed-outer">
@@ -29,4 +30,4 @@ function checkoutProceed(props){
     )
 }
 
-export default checkoutProceed;
+export default CheckoutProceed;

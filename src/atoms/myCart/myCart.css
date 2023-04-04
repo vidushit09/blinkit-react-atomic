@@ -1,0 +1,29 @@
+.navbar__mycart {
+  background-color: rgb(12, 131, 31);
+  width: 11rem;
+  height: 5rem;
+  padding: 0rem 1.2rem;
+  color: white;
+  margin: 0rem 4.48rem 0rem 4.5rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.navbar__mycart:hover {
+  cursor: pointer;
+}
+.navbar__mycart i {
+  font-size: 1.7rem;
+  margin-right: 0.9rem;
+}
+.my-cart-text {
+  text-align: left;
+}
+.cartRight div{
+  font-size: 1.2rem;
+}

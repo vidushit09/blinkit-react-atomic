@@ -1,19 +1,33 @@
 import React from "react";
 import Product from "../product";
-import "./style.css";
+import "./productsContainerItems.css";
+import PropTypes from "prop-types";
 
-function productsContainerItems(props){
-    const {products, addProduct, deleteProduct}=props;
-    let list= products.map((product,index)=>{
-        return(
-            <Product key={index} product={product} addProduct={addProduct} deleteProduct={deleteProduct}/>
-        )
-    })
-    return(
-        <div className="products-container__items" id="products-container__items">
-            {list}
-        </div>
-    )
+function ProductsContainerItems(props) {
+  const { products, addProduct, deleteProduct } = props;
+  let list = products.map((product) => {
+    return (
+      <Product
+        key={product.id}
+        product={product}
+        addProduct={addProduct}
+        deleteProduct={deleteProduct}
+      />
+    );
+  });
+  return (
+    <div className="products-container__items" id="products-container__items">
+      {list}
+    </div>
+  );
 }
 
-export default productsContainerItems;
+ProductsContainerItems.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object),
+};
+ProductsContainerItems.defaultProps = {
+  product: [],
+};
+
+
+export default ProductsContainerItems;

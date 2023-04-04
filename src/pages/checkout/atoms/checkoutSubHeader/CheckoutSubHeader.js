@@ -1,7 +1,8 @@
 import React from "react";
-import "./style.css";
+import "./checkoutSubHeader.css";
+import PropTypes from "prop-types";
 
-function checkoutSubHeader(props){
+function CheckoutSubHeader(props){
     return (
         <>
             <div className="delivery-time">
@@ -14,4 +15,12 @@ function checkoutSubHeader(props){
     )
 }
 
-export default checkoutSubHeader;
+CheckoutSubHeader.propTypes={
+    cartCount:PropTypes.number
+}
+CheckoutSubHeader.defaultProps={
+    cartCount:0
+}
+
+
+export default CheckoutSubHeader;

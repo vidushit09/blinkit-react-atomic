@@ -1,8 +1,9 @@
 import React from "react";
 import CheckoutProceed from "../../atoms/checkoutProceed";
-import "./style.css";
+import "./checkoutFooter.css";
+import PropTypes from "prop-types"
 
-function checkoutFooter(props){
+function CheckoutFooter(props){
     const {cartOriginal,cartDiscount, cartCount}=props;
     return(
         <div className="checkout-footer">
@@ -53,4 +54,15 @@ function checkoutFooter(props){
     )
 }
 
-export default checkoutFooter;
+CheckoutFooter.propTypes = {
+    cartCount: PropTypes.number,
+    cartDiscount: PropTypes.number,
+    cartOriginal:PropTypes.number
+  };
+  CheckoutFooter.defaultProps={
+    cartCount:0,
+    cartDiscount:0,
+    cartOriginal:0
+  }
+
+export default CheckoutFooter;

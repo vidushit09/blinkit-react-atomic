@@ -1,7 +1,7 @@
 import React from "react";
-import "./style.css";
+import "./checkoutHeader.css";
 
-function checkoutHeader(){
+function CheckoutHeader(){
     return(
         <div className="checkout-header">
             Place Order
@@ -9,4 +9,4 @@ function checkoutHeader(){
     )
 }
 
-export default checkoutHeader;
+export default CheckoutHeader;

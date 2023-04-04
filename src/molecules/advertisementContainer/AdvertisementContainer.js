@@ -1,16 +1,16 @@
 import React from "react";
-import AdvertisementCards from "../../atoms/advertisementCards";
-import "./style.css";
+import AdvertisementCard from "../../atoms/advertisementCard";
+import "./advertisementContainer.css";
 
-function advertisementContainer(){
+function AdvertisementContainer(){
     return(
         <div className="advertisement-cards display-flex">
-            <AdvertisementCards title="Superfast Delivery" content="Get your order delivered to your doorstep at the earliest from dark stores near you" />
-            <AdvertisementCards title="Best Prices & Offers" content="Best price destination with offers directly from the manufacturers" />
-            <AdvertisementCards title="Wide Assortment" content="Choose from 5000+ products across food, personal care, household & other categories" />
+            <AdvertisementCard title="Superfast Delivery" content="Get your order delivered to your doorstep at the earliest from dark stores near you" />
+            <AdvertisementCard title="Best Prices & Offers" content="Best price destination with offers directly from the manufacturers" />
+            <AdvertisementCard title="Wide Assortment" content="Choose from 5000+ products across food, personal care, household & other categories" />
         
         </div>
     )
 }
 
-export default advertisementContainer;
+export default AdvertisementContainer;

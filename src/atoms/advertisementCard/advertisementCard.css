@@ -1,5 +1,5 @@
 
-.advertisement-cards__card{
+.advertisement-card__card{
     border: 0.15rem solid #c3b7b76e;
     flex-direction: column;
     margin: 0rem 1.5rem;
@@ -8,24 +8,24 @@
     text-align: center;
     width: 37.3rem;
   }
-  .advertisement-cards__img{
-    border: 0.12rem solid pink;
+  .advertisement-card__img{
+    border: 0.12rem solid yellow;
     height:13.4rem;
     width: 13.4rem;
     border-radius: 100%;
     margin-bottom: 1.5rem;
     padding: 0.3rem;
   }
-  .advertisement-cards__img img{
+  .advertisement-card__img img{
     width: 100%;
     border-radius: 100%;
   }
-  .advertisement-cards__title{
+  .advertisement-card__title{
     font-weight: bold;
     font-size: 1.5rem;
     margin-bottom: 2.24rem;
   }
-  .advertisement-cards__content{
+  .advertisement-card__content{
     font-size: 1.51rem;
     color: gray;
   }

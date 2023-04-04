@@ -1,7 +1,7 @@
 import React from "react";
-import "./style.css";
+import "./productsContainerItemsHeader.css";
 
-function productsContainerItemsHeader(props) {
+function ProductsContainerItemsHeader(props) {
     return (
         <div className="products-container__items-header display-flex">
             <div className="products-container__buy-fresh-online">
@@ -25,4 +25,4 @@ function productsContainerItemsHeader(props) {
     );
 }
 
-export default productsContainerItemsHeader;
+export default ProductsContainerItemsHeader;

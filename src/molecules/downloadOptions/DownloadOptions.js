@@ -1,8 +1,8 @@
 import React from "react";
 import DownloadButton from "../../atoms/downloadButton";
-import "./style.css";
+import "./downloadOptions.css";
 
-function downloadOptions() {
+function DownloadOptions() {
     return (
         <div className="footer__download-options display-flex">
             <div className="footer__download-app">Download App</div>
@@ -13,4 +13,4 @@ function downloadOptions() {
     )
 }
 
-export default downloadOptions;
+export default DownloadOptions;
