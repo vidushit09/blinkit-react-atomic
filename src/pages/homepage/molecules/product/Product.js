@@ -4,6 +4,7 @@ import { calculateDiscountedPrice } from "../../../../helpers/calculateDiscounte
 import "./product.css";
 import PropTypes from "prop-types";
 
+
 class Product extends React.Component {
   constructor(props) {
     super(props);
