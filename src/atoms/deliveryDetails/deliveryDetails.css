@@ -1,0 +1,17 @@
+
+.navbar__delivery-details{
+    margin-left: 4.5rem;
+  }
+  .navbar__delivery-time{
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    font-size: 1.7rem;
+  }
+  .navbar__location{
+    font-size: 1.34rem;
+    letter-spacing: 0.12rem;
+  }
+  .navbar__location:hover{
+    cursor: pointer;
+  }
+  

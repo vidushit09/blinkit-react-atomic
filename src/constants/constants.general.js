@@ -1,0 +1,3 @@
+export const HOMEPAGE_CONSTANTS={
+    DEFAULT_SUB_CATEGORY: "All"
+}

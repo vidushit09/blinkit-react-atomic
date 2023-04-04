@@ -1,0 +1,22 @@
+
+.products-container__items-header{
+    justify-content: space-between;
+    padding: 1.65rem 1.5rem;
+    width: 83rem;
+  } 
+  .products-container__sort{
+    font-size: 1.34rem;
+    color: #666666;
+    margin-right: 0.75rem;
+  }
+  #sort-dropdown{
+    padding: 0.45rem;
+    color: green;
+    border: 0.06rem solid #cfc7c7;
+    border-radius: 0.3rem;
+  }
+  .products-container__buy-fresh-online{
+    font-size: 1.85rem;
+    font-weight: bold;
+  }
+  

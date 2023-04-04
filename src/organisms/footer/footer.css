@@ -1,0 +1,26 @@
+
+.footer{
+    background-color: #fcfcfc;
+    padding: 0rem 13.43rem;
+    height: 9rem;
+    justify-content: space-between;
+  }
+  .footer__left{
+    justify-content: space-between;
+  }
+  
+  .footer__right button{
+    color: white;
+    background-color: black;
+    height: 4.48rem;
+    width: 4.48rem;
+    border-radius: 50%;
+    border: none;
+    margin: 0rem 0.3rem;
+  }
+  .footer__right button i{
+    font-size: 2.54rem;
+  }
+  .footer__right button:hover{
+    cursor: pointer;
+  }

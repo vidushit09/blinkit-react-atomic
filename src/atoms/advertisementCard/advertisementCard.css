@@ -1,0 +1,31 @@
+
+.advertisement-card__card{
+    border: 0.15rem solid #c3b7b76e;
+    flex-direction: column;
+    margin: 0rem 1.5rem;
+    padding: 3rem;
+    border-radius: 1.05rem;
+    text-align: center;
+    width: 37.3rem;
+  }
+  .advertisement-card__img{
+    border: 0.12rem solid yellow;
+    height:13.4rem;
+    width: 13.4rem;
+    border-radius: 100%;
+    margin-bottom: 1.5rem;
+    padding: 0.3rem;
+  }
+  .advertisement-card__img img{
+    width: 100%;
+    border-radius: 100%;
+  }
+  .advertisement-card__title{
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 2.24rem;
+  }
+  .advertisement-card__content{
+    font-size: 1.51rem;
+    color: gray;
+  }

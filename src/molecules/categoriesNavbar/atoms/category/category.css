@@ -1,0 +1,11 @@
+
+.category-list__list-item{
+    height: 100%;
+    padding: 0rem 1.5rem;
+    color: #6a6868;
+  }
+  .category-list__list-item:hover{
+    height: 6rem;
+    cursor: pointer;
+    background-color: #8080801c;
+  }
