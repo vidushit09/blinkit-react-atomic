@@ -1,5 +1,5 @@
 import React from "react";
-import AdvertisementCard from "../../atoms/advertisementCard";
+import AdvertisementCard from "./atoms/advertisementCard";
 import "./advertisementContainer.css";
 
 function AdvertisementContainer(){

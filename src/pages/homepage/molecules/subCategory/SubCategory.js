@@ -4,19 +4,12 @@ import "./subCategory.css";
 import PropTypes from "prop-types";
 import { subCategoryClick } from "../../../../actions/productActions";
 import { connect } from "react-redux";
+import { subCategoryHelper } from "./helpers/subCategoryHelper";
 
 function SubCategory(props) {
   const { currSubCategory, subCategories, subCategoryClick } = props;
-  let list = subCategories.map((subCategory, index) => {
-    return (
-      <SubCategoryListItem
-        key={index}
-        subCategory={subCategory}
-        currSubCategory={currSubCategory}
-        subCategoryClick={subCategoryClick}
-      />
-    );
-  });
+  let list = subCategoryHelper(subCategories, currSubCategory, subCategoryClick);
+  
   let path = "http://127.0.0.1:3000/" + subCategories[0].categoryThumbnail;
   return (
     <ul

@@ -1,34 +1,19 @@
 import React from "react";
-import Category from "./atoms/category"
 import CategoryMore from "./atoms/categoryMore";
 import PropTypes from "prop-types";
 import "./categoriesNavbar.css";
 import { categoryClick } from "../../actions/productActions";
 import { connect } from "react-redux";
+import { categoryListHelper } from "./helpers/categoryListHelper";
 
 function CategoriesNavbar(props) {
   let list,
     i = 7;
   const { categories, categoryClick } = props;
   if (categories.length <= 7) {
-    list = categories.map((category, index) => {
-      return (
-        <Category
-          category={category}
-          categoryClick={categoryClick}
-        />
-      );
-    });
+    list = categoryListHelper(categories, categoryClick);
   } else {
-    list = categories.slice(0, 7).map((category, index) => {
-      return (
-        <Category
-          category={category}
-          categoryClick={categoryClick}
-        />
-      );
-    });
-
+    list = categoryListHelper(categories.slice(0, 7), categoryClick);
     list.push(
       <CategoryMore
         categories={categories.slice(7)}
@@ -45,20 +30,20 @@ function CategoriesNavbar(props) {
 CategoriesNavbar.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.string),
 };
-CategoriesNavbar.defaultProps={
-  categories:[]
-}
+CategoriesNavbar.defaultProps = {
+  categories: [],
+};
 
 const mapStateToProps = (state) => {
   return {
-    categories: state.product.categories
+    categories: state.product.categories,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-return {
-  categoryClick: (category)=> dispatch(categoryClick(category))
-};
+  return {
+    categoryClick: (category) => dispatch(categoryClick(category)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoriesNavbar);

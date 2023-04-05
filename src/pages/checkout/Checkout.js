@@ -1,5 +1,4 @@
 import React from "react";
-import data from "../../data/data.json";
 import TopNavbar from "../../organisms/topNavbar";
 import CategoriesNavbar from "../../molecules/categoriesNavbar";
 import CheckoutHeader from "./atoms/checkoutHeader";
@@ -24,7 +23,7 @@ function Checkout(props) {
       <CategoriesNavbar/>
       <div className="checkout">
         <CheckoutHeader />
-        <CheckoutSubHeader/>
+        <CheckoutSubHeader cartItems={cartItems}/>
         <CheckoutItems/> 
         <CheckoutFooter cartItems={cartItems}/> 
       </div>
@@ -36,14 +35,12 @@ function Checkout(props) {
 }
 
 Checkout.propTypes = {
-  cartOriginal: PropTypes.number,
-  cartDiscount: PropTypes.number,
-  cartCount: PropTypes.number,
+  cartItems: PropTypes.object,
+  cartCount: PropTypes.number
 };
 Checkout.defaultProps = {
-  cartOriginal: 0,
-  cartDiscount: 0,
-  cartCount: 0,
+  cartItems: {},
+  cartCount: 0
 };
 
 

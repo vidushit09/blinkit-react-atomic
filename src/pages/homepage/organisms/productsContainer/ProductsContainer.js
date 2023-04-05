@@ -1,6 +1,4 @@
 import React from "react";
-import { getSubCategory } from "../../../../helpers/getSubCategory";
-import { getItems } from "../../helpers/getItems";
 import SubCategory from "../../molecules/subCategory";
 import SubCategoryItemsContainer from "../../molecules/subCategoryItemsContainer";
 import "./productsContainer.css";
@@ -8,32 +6,25 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 function ProductsContainer(props) {
-  const {
-    products
-  } = props;
+  const { products } = props;
   return (
     <div className="products-container">
-      <SubCategory/>
-      <SubCategoryItemsContainer
-        products={products}
-      />
+      <SubCategory />
+      <SubCategoryItemsContainer products={products} />
     </div>
   );
 }
 
 ProductsContainer.propTypes = {
-  category: PropTypes.string,
-  currSubCategory: PropTypes.string,
+  products: PropTypes.arrayOf(PropTypes.object),
 };
 ProductsContainer.defaultProps = {
-  category: undefined,
-  currSubCategory: undefined,
+  products: [],
 };
 
 const mapStateToProps = (state) => {
   return {
-    products: state.product.products
+    products: state.product.products,
   };
 };
-export default connect(mapStateToProps)(ProductsContainer)
-
+export default connect(mapStateToProps)(ProductsContainer);

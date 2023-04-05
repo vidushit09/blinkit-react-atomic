@@ -23,12 +23,10 @@ function MyCart(props) {
 }
 
 MyCart.propTypes = {
-  cartCount: PropTypes.number,
-  cartDiscount: PropTypes.number,
+  cartItems: PropTypes.object
 };
 MyCart.defaultProps = {
-  cartCount: 0,
-  cartDiscount: 0,
+  cartItems: {}
 };
 
 

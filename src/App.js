@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router";
 import Homepage from "./pages/homepage";
 import Checkout from "./pages/checkout";
 import data from "./data/data.json";
-import { calculateDiscountedPrice } from "./helpers/calculateDiscountedPrice.js";
+import {addProductHelper} from "./helpers/addProductHelper";
 
 class App extends React.Component {
   constructor(props) {
@@ -28,27 +28,8 @@ class App extends React.Component {
     });
   };
   addProduct = (product) => {
-    let obj;
     let tempCartItems = this.state.cartItems;
-
-    if (tempCartItems.get(product.id) == undefined) {
-      obj = {
-        name: product.name,
-        original: product.price,
-        discountedPrice: calculateDiscountedPrice(
-          product.price,
-          product.discount
-        ),
-        discount: product.discount,
-        quantity: 1,
-        thumbnail: product.thumbnail,
-      };
-      tempCartItems.set(product.id, obj);
-    } else {
-      obj = tempCartItems.get(product.id);
-      obj["quantity"] = Number(obj["quantity"]) + 1;
-      tempCartItems.set(product.id, obj);
-    }
+    tempCartItems= addProductHelper(tempCartItems,product)
     this.setState({
       cartItems: tempCartItems,
     });

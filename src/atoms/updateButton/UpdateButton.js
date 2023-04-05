@@ -54,10 +54,18 @@ class UpdateButton extends React.Component {
 }
 
 UpdateButton.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
+  count: PropTypes.number,
+  displayDefault: PropTypes.bool, 
+  product: PropTypes.object,
+  cartItems: PropTypes.object
 };
 UpdateButton.defaultProps = {
   id: undefined,
+  count: 0,
+  displayDefault: true, 
+  product: {},
+  cartItems: {}
 };
 
 const mapStateToProps = (state) => {

@@ -2,16 +2,11 @@ import React from "react";
 import CheckoutItem from "../../molecules/checkoutItem";
 import "./checkoutItems.css";
 import { connect } from "react-redux";
+import { checkoutItemsHelper } from "../../helpers/checkoutItemsHelper";
 
 function CheckoutItems(props){
     const {cartItems}=props;
-    let products=[];
-    
-    cartItems.forEach((product,key)=>{
-        products.push(
-            <CheckoutItem cartItems={cartItems} product={product} id={key}/>
-        )
-    })
+    let products=checkoutItemsHelper(cartItems);
 
     return(
         <ul className="checkout-items-list">

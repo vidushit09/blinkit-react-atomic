@@ -25,16 +25,12 @@ function Homepage(props) {
 }
 
 Homepage.propTypes = {
-  category: PropTypes.string,
-  currSubCategory: PropTypes.string,
-  cartCount: PropTypes.number,
-  cartDiscount: PropTypes.number,
+  cartItems: PropTypes.object,
+  cartCount: PropTypes.number
 };
 Homepage.defaultProps = {
-  category: undefined,
-  currSubCategory: undefined,
-  cartCount: 0,
-  cartDiscount: 0,
+  cartItems: {},
+  cartCount: 0
 };
 
 const mapStateToProps = (state) => {

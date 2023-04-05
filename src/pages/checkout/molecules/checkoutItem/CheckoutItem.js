@@ -5,24 +5,24 @@ import PropTypes from "prop-types";
 import { addToCart } from "../../../../actions/cartActions";
 import { removeFromCart } from "../../../../actions/cartActions";
 import { connect } from "react-redux";
+import { calculateDiscountedPrice } from "../../../../helpers/calculateDiscountedPrice";
 
 class CheckoutItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       displayDefault: false,
-      count: this.props.product.quantity,
-      cartItems: this.props.cartItems,
+      count: this.props.product.quantity
     };
   }
 
-  plusone = (product) => {
+  plusone = () => {
     this.setState({
       count: this.state.count + 1,
     });
     this.props.addToCart(this.props.id);
   };
-  minusone = (product) => {
+  minusone = () => {
     if (this.state.count == 1) {
       this.setState({
         count: this.state.count - 1,
@@ -38,11 +38,11 @@ class CheckoutItem extends React.Component {
 
   render() {
     if (this.state.count != 0) {
-      const { cartItems, product, id, addToCart, removeFromCart } = this.props;
+      const { product, id, addToCart, removeFromCart } = this.props;
       let thumbnail = "http://127.0.0.1:3000/" + product.thumbnail;
       let discount = Number(product.discount);
       let price = Number(product.original);
-      let updatedPrice = (price * (1 - 0.01 * discount)).toFixed(2);
+      let updatedPrice = calculateDiscountedPrice(price, discount);
       let quantity = product.quantity;
       let name = product.name;
 
@@ -87,9 +87,11 @@ class CheckoutItem extends React.Component {
 }
 CheckoutItem.propTypes = {
   product: PropTypes.object,
+  id: PropTypes.number
 };
 CheckoutItem.defaultProps = {
-  product: undefined,
+  product: {},
+  id: 0
 };
 
 const mapDispatchToProps = (dispatch) => {

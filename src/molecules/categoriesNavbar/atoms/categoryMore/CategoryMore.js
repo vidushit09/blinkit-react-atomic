@@ -1,19 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./categoryMore.css";
+import { categoryMoreHelper } from "../../helpers/categoryMoreHelper";
 
 function CategoryMore(props) {
   const { categories, categoryClick } = props;
-  let list = categories.map((category, index) => {
-    return (
-      <Link to="/">
-        <li onClick={()=>props.categoryClick(category)} key={index}>
-          {category}
-        </li>
-      </Link>
-    );
-  });
+  let list= categoryMoreHelper(categories, categoryClick);
   return (
     <li className="category-list__list-item display-flex" id="more">
       More
