@@ -9,6 +9,7 @@ import "./myCart.css";
 
 function MyCart(props) {
   let { cartItems} = props;
+  console.log(props);
   return (
     <>
       <Link to="/checkout">
@@ -31,10 +32,5 @@ MyCart.defaultProps = {
 };
 
 
-const mapStateToProps = (state) => {
-  return {
-    cartItems: state.cart.cartItems
-  };
-};
 
-export default connect(mapStateToProps)(MyCart);
+export default MyCart;

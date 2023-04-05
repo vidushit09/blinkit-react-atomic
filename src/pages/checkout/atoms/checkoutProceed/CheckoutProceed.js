@@ -2,7 +2,6 @@ import React from "react";
 import "./checkoutProceed.css";
 import PropTypes from "prop-types";
 import { getCartCount } from "../../../../helpers/getCartCount";
-import { connect } from "react-redux";
 
 function CheckoutProceed(props){
     let {cartOriginal, cartDiscount, cartItems}=props
@@ -33,10 +32,4 @@ function CheckoutProceed(props){
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-      cartItems: state.cart.cartItems
-    };
-  };
-  
-  export default connect(mapStateToProps)(CheckoutProceed);
+  export default CheckoutProceed;

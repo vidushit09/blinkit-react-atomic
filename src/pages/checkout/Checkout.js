@@ -11,17 +11,22 @@ import Disclaimer from "../../atoms/disclaimer";
 import Footer from "../../organisms/footer";
 import PropTypes from "prop-types";
 import "./checkout.css";
+import { connect } from "react-redux";
+
 
 function Checkout(props) {
+  const {
+    cartItems
+  } = props;
   return (
     <>
-      <TopNavbar/> 
+      <TopNavbar cartItems={cartItems}/> 
       <CategoriesNavbar/>
       <div className="checkout">
         <CheckoutHeader />
         <CheckoutSubHeader/>
         <CheckoutItems/> 
-        <CheckoutFooter /> 
+        <CheckoutFooter cartItems={cartItems}/> 
       </div>
       <AdvertisementContainer />
       <Disclaimer />
@@ -41,4 +46,12 @@ Checkout.defaultProps = {
   cartCount: 0,
 };
 
-export default Checkout;
+
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cart.cartItems,
+    cartCount: state.cart.cartCount
+  };
+};
+
+export default connect(mapStateToProps)(Checkout);

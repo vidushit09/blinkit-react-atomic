@@ -1,5 +1,4 @@
 import React from "react";
-import data from "../../data/data.json";
 import TopNavbar from "../../organisms/topNavbar";
 import CategoriesNavbar from "../../molecules/categoriesNavbar";
 import ProductsContainer from "./organisms/productsContainer";
@@ -11,12 +10,11 @@ import { connect } from "react-redux";
 
 function Homepage(props) {
   const {
-    cartItems,
-    count
+    cartItems
   } = props;
   return (
     <>
-      <TopNavbar cartItems={cartItems} count={count}/>
+      <TopNavbar cartItems={cartItems} />
       <CategoriesNavbar/>
       <ProductsContainer/>
       <AdvertisementContainer />
@@ -42,7 +40,7 @@ Homepage.defaultProps = {
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cart.cartItems,
-    count:state.cart.count
+    cartCount: state.cart.cartCount
   };
 };
 

@@ -1,5 +1,5 @@
-import { getCartCount } from "../../../helpers/getCartCount";
-import { getCartTotalDiscounted } from "../../../helpers/getCartTotalDiscounted";
+import { getCartCount } from "../../../../../helpers/getCartCount";
+import { getCartTotalDiscounted } from "../../../../../helpers/getCartTotalDiscounted";
 
 export const cartInner=(cartItems)=> {
   if(cartItems.size==0){
