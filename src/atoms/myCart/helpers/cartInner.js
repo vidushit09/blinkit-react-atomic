@@ -2,7 +2,6 @@ import { getCartCount } from "../../../helpers/getCartCount";
 import { getCartTotalDiscounted } from "../../../helpers/getCartTotalDiscounted";
 
 export const cartInner=(cartItems)=> {
-  console.log(cartItems.size==0);
   if(cartItems.size==0){
     return (
       <>
@@ -13,14 +12,11 @@ export const cartInner=(cartItems)=> {
   }
     let cartCount=getCartCount(cartItems);
     let cartDiscount=getCartTotalDiscounted(cartItems);
-    if (cartCount == 0) {
-      
-    } else {
-      return (
-        <div className="cartRight">
-          <div>{cartCount} items</div>
-          <div>₹ {cartDiscount}</div>
-        </div>
-      );
-    }
+    return (
+      <div className="cartRight">
+        <div>{cartCount} items</div>
+        <div>₹ {cartDiscount}</div>
+      </div>
+    );
+
   }

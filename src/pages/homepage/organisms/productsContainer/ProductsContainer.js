@@ -5,28 +5,17 @@ import SubCategory from "../../molecules/subCategory";
 import SubCategoryItemsContainer from "../../molecules/subCategoryItemsContainer";
 import "./productsContainer.css";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function ProductsContainer(props) {
   const {
-    category,
-    cartItems,
-    currSubCategory,
-    subCategoryOnClick,
-    addProduct,
-    deleteProduct,
+    products
   } = props;
   return (
     <div className="products-container">
-      <SubCategory
-        currSubCategory={currSubCategory}
-        subCategories={getSubCategory(category)}
-        subCategoryOnClick={subCategoryOnClick}
-      />
+      <SubCategory/>
       <SubCategoryItemsContainer
-        cartItems={cartItems}
-        products={getItems(currSubCategory, category)}
-        addProduct={addProduct}
-        deleteProduct={deleteProduct}
+        products={products}
       />
     </div>
   );
@@ -41,4 +30,10 @@ ProductsContainer.defaultProps = {
   currSubCategory: undefined,
 };
 
-export default ProductsContainer;
+const mapStateToProps = (state) => {
+  return {
+    products: state.product.products
+  };
+};
+export default connect(mapStateToProps)(ProductsContainer)
+

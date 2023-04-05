@@ -21,18 +21,13 @@ function Checkout(props) {
   } = props;
   return (
     <>
-      <TopNavbar cartItems={cartItems}/> 
-      <CategoriesNavbar
-        categories={data.topTabCategoryList}
-        categoryClick={categoryClick}
-      />
+      <TopNavbar/> 
+      <CategoriesNavbar/>
       <div className="checkout">
         <CheckoutHeader />
-        <CheckoutSubHeader cartItems={cartItems} />
-        <CheckoutItems cartItems={cartItems} addProduct={addProduct} deleteProduct={deleteProduct} />
-        <CheckoutFooter
-          cartItems={cartItems}
-        /> 
+        <CheckoutSubHeader/>
+        {/* <CheckoutItems/>
+        <CheckoutFooter />  */}
       </div>
       <AdvertisementContainer />
       <Disclaimer />

@@ -2,16 +2,18 @@ import React from "react";
 import SubCategoryListItem from "../../atoms/subCategoryListItem";
 import "./subCategory.css";
 import PropTypes from "prop-types";
+import { subCategoryClick } from "../../../../redux/product/productActions";
+import { connect } from "react-redux";
 
 function SubCategory(props) {
-  const { currSubCategory, subCategories, subCategoryOnClick } = props;
+  const { currSubCategory, subCategories, subCategoryClick } = props;
   let list = subCategories.map((subCategory, index) => {
     return (
       <SubCategoryListItem
         key={index}
         subCategory={subCategory}
         currSubCategory={currSubCategory}
-        subCategoryOnClick={subCategoryOnClick}
+        subCategoryClick={subCategoryClick}
       />
     );
   });
@@ -27,7 +29,7 @@ function SubCategory(props) {
             ? "products-container__category--active display-flex"
             : "products-container__category--inactive display-flex"
         }
-        onClick={subCategoryOnClick}
+        onClick={()=>subCategoryClick("All")}
       >
         <div className="products-container__category__category-image">
           <img src={path} className="products-container__category-image-img" />
@@ -48,4 +50,18 @@ SubCategory.defaultProps = {
 };
 
 
-export default SubCategory;
+const mapStateToProps = (state) => {
+  return {
+    subCategories: state.product.subCategories,
+    currSubCategory: state.product.subCategory
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+return {
+  subCategoryClick: (subCategory)=> dispatch(subCategoryClick(subCategory))
+};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubCategory);
+

@@ -9,7 +9,7 @@ function Category(props) {
     <Link to="/">
       <li
         className="category-list__list-item display-flex"
-        onClick={categoryClick}
+        onClick={()=>props.categoryClick(props.category)}
       >
         {category}
       </li>

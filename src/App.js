@@ -53,7 +53,6 @@ class App extends React.Component {
     this.setState({
       cartItems: tempCartItems,
     });
-    console.log(this.state.cartItems);
   };
 
   deleteProduct = (product) => {

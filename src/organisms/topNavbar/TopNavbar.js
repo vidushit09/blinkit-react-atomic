@@ -5,9 +5,11 @@ import Login from "../../atoms/login";
 import MyCart from "../../atoms/myCart";
 import PropTypes from "prop-types";
 import "./topNavbar.css";
+import { connect } from "react-redux";
 
 function TopNavbar(props) {
-  const { cartItems } = props;
+  let { cartItems,count } = props;
+  console.log(cartItems,count);
   return (
     <div className="navbar display-flex">
       <div className="navbar__left display-flex">
@@ -16,18 +18,17 @@ function TopNavbar(props) {
       </div>
       <div className="navbar__right">
         <Login />
-        <MyCart cartItems={cartItems} />
+        <MyCart cartItems={cartItems} count={count}/>
       </div>
     </div>
   );
 }
 TopNavbar.propTypes = {
-  cartCount: PropTypes.number,
-  cartDiscount: PropTypes.number,
+  cartItems: PropTypes.object
 };
 TopNavbar.defaultProps={
-  cartCount:0,
-  cartDiscount:0
+  cartItems: {}
 }
+
 
 export default TopNavbar;

@@ -5,12 +5,6 @@ import { sortByHelper } from "../../helpers/sortByHelper";
 import PropTypes from "prop-types";
 
 class SubCategoryItemsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      products: this.props.products,
-    };
-  }
   sortBy = (event) => {
     let currProducts = sortByHelper(event, this.props.products);
     this.setState({
@@ -18,15 +12,12 @@ class SubCategoryItemsContainer extends React.Component {
     });
   };
   render() {
-    const {cartItems, products, addProduct, deleteProduct } = this.props;
+    const {products} = this.props;
     return (
       <div className="products-container__items-container">
         <ProductsContainerItemsHeader sortBy={this.sortBy} />
         <ProductsContainerItems
-          cartItems={cartItems}
           products={products}
-          addProduct={addProduct}
-          deleteProduct={deleteProduct}
         />
       </div>
     );
@@ -36,7 +27,7 @@ SubCategoryItemsContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object),
 };
 SubCategoryItemsContainer.defaultProps = {
-  product: [],
+  products: [],
 };
 
 export default SubCategoryItemsContainer;

@@ -3,7 +3,9 @@ import UpdateButton from "../../../../atoms/updateButton";
 import { calculateDiscountedPrice } from "../../../../helpers/calculateDiscountedPrice.js";
 import "./product.css";
 import PropTypes from "prop-types";
-
+import { addToCart } from "../../../../redux/cart/cartActions";
+import { removeFromCart } from "../../../../redux/cart/cartActions";
+import { connect } from "react-redux";
 
 class Product extends React.Component {
   constructor(props) {
@@ -12,8 +14,8 @@ class Product extends React.Component {
       this.state = {
         displayDefault: true,
         count:
-          this.props.cartItems.get(String(this.props.key)) != undefined
-            ? this.props.cartItems.get(String(this.props.key)).quantity
+          this.props.cartItems.get(String(this.props.index)) != undefined
+            ? this.props.cartItems.get(String(this.props.index)).quantity
             : 0,
       };
     } else {
@@ -28,14 +30,15 @@ class Product extends React.Component {
       displayDefault: false,
       count: this.state.count + 1,
     });
-    this.props.addProduct(product);
+    this.props.addToCart(product.id);
   };
   plusone = (product) => {
     this.setState({
       count: this.state.count + 1,
     });
-    this.props.addProduct(product);
+    this.props.addToCart(product.id);
   };
+
   minusone = (product) => {
     if (this.state.count == 1) {
       this.setState({
@@ -47,10 +50,10 @@ class Product extends React.Component {
         count: this.state.count - 1,
       });
     }
-    this.props.deleteProduct(product);
+    this.props.removeFromCart(product.id);
   };
   render() {
-    let { cartItems, key, product, addProduct, deleteProduct } = this.props;
+    let { key, product, products, count, cart, addToCart, removeFromCart } =this.props;
     let path = "http://127.0.0.1:3000/" + product.thumbnail;
     let displayDefault = this.state.displayDefault;
 
@@ -87,7 +90,6 @@ class Product extends React.Component {
           <UpdateButton
             count={this.state.count}
             displayDefault={this.state.displayDefault}
-            cartItems={cartItems}
             product={product}
             firstAdd={this.firstAdd}
             plusone={this.plusone}
@@ -106,4 +108,19 @@ Product.defaultProps = {
   product: undefined,
 };
 
-export default Product;
+const mapStateToProps = (state) => {
+  return {
+    products: state.product.products,
+    count: state.product.count,
+    cart: state.cart.cartItems,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    removeFromCart: (id) => dispatch(removeFromCart(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

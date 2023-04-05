@@ -8,7 +8,7 @@ function CategoryMore(props) {
   let list = categories.map((category, index) => {
     return (
       <Link to="/">
-        <li onClick={categoryClick} key={index}>
+        <li onClick={()=>props.categoryClick(category)} key={index}>
           {category}
         </li>
       </Link>

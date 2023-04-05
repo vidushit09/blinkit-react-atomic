@@ -2,12 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { cartInner } from "./helpers/cartInner";
+import { connect } from "react-redux";
 
 
 import "./myCart.css";
 
 function MyCart(props) {
-  const { cartItems } = props;
+  let { cartItems, count } = props;
+  console.log(cartItems);
   return (
     <>
       <Link to="/checkout">
@@ -29,4 +31,11 @@ MyCart.defaultProps = {
   cartDiscount: 0,
 };
 
-export default MyCart;
+// const mapStateToProps = (state) => {
+//   console.log(state.cart.cartItems);
+//   return {
+//     cartItems: state.cart.cartItems
+//   };
+// };
+
+export default MyCart

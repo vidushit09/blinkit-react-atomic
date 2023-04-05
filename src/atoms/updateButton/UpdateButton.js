@@ -1,34 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./updateButton.css";
+import { connect } from "react-redux";
 
 class UpdateButton extends React.Component {
   constructor(props) {
     super(props);
-    if (this.props.cartItems.get(this.props.product.id) != undefined) {
-      this.state = {
-        showDefault: false,
-      };
-    } else {
-      this.state = {
-        showDefault: true,
-      };
-    }
+    this.state = {
+      showDefault: this.props.displayDefault,
+    };
   }
 
   render() {
-    let showDefault = this.props.displayDefault,
-      val;
-    let {
-      count,
-      displayDefault,
-      cartItems,
-      product,
-      firstAdd,
-      plusone,
-      minusone,
-    } = this.props;
-    if (this.props.cartItems.get(this.props.product.id) != undefined) {
+    const { count, displayDefault, product, firstAdd, plusone, minusone, cartItems } = this.props;
+    let val = 0,showDefault = true;
+    if (cartItems.get(product.id) != undefined) {
       showDefault = false;
       val = cartItems.get(product.id).quantity;
     }
@@ -74,4 +60,13 @@ UpdateButton.defaultProps = {
   id: undefined,
 };
 
-export default UpdateButton;
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cart.cartItems
+  };
+};
+
+
+
+export default connect(mapStateToProps)(UpdateButton);
+

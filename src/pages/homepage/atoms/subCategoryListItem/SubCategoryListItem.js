@@ -3,7 +3,7 @@ import "./subCategoryListItem.css";
 import PropTypes from "prop-types";
 
 function SubCategoryListItem(props) {
-  const { subCategory, currSubCategory, subCategoryOnClick } = props;
+  const { subCategory, currSubCategory, subCategoryClick } = props;
   let path = "http://127.0.0.1:3000/" + subCategory.categoryThumbnail;
   return (
     <>
@@ -13,7 +13,7 @@ function SubCategoryListItem(props) {
             ? "products-container__category--active display-flex"
             : "products-container__category--inactive display-flex"
         }
-        onClick={subCategoryOnClick}
+        onClick={()=>subCategoryClick(subCategory.subCategory)}
       >
         <div className="products-container__category__category-image">
           <img src={path} className="products-container__category-image-img" />

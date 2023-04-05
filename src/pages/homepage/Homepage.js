@@ -7,32 +7,18 @@ import AdvertisementContainer from "../../molecules/advertisementContainer";
 import Disclaimer from "../../atoms/disclaimer";
 import Footer from "../../organisms/footer";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 function Homepage(props) {
   const {
-    category,
-    currSubCategory,
     cartItems,
-    categoryClick,
-    subCategoryOnClick,
-    addProduct,
-    deleteProduct,
+    count
   } = props;
   return (
     <>
-      <TopNavbar cartItems={cartItems} />
-      <CategoriesNavbar
-        categories={data.topTabCategoryList}
-        categoryClick={categoryClick}
-      />
-      <ProductsContainer
-        category={category}
-        cartItems={cartItems}
-        currSubCategory={currSubCategory}
-        subCategoryOnClick={subCategoryOnClick}
-        addProduct={addProduct}
-        deleteProduct={deleteProduct}
-      />
+      <TopNavbar cartItems={cartItems} count={count}/>
+      <CategoriesNavbar/>
+      <ProductsContainer/>
       <AdvertisementContainer />
       <Disclaimer />
       <Footer />
@@ -53,4 +39,11 @@ Homepage.defaultProps = {
   cartDiscount: 0,
 };
 
-export default Homepage;
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cart.cartItems,
+    count:state.cart.count
+  };
+};
+
+export default connect(mapStateToProps)(Homepage);
