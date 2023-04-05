@@ -3,14 +3,13 @@ import Category from "./atoms/category"
 import CategoryMore from "./atoms/categoryMore";
 import PropTypes from "prop-types";
 import "./categoriesNavbar.css";
-import { categoryClick } from "../../redux/product/productActions.js";
+import { categoryClick } from "../../actions/productActions";
 import { connect } from "react-redux";
 
 function CategoriesNavbar(props) {
   let list,
     i = 7;
   const { categories, categoryClick } = props;
-  console.log(categoryClick);
   if (categories.length <= 7) {
     list = categories.map((category, index) => {
       return (

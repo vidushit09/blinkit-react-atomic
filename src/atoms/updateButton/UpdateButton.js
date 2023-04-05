@@ -12,11 +12,11 @@ class UpdateButton extends React.Component {
   }
 
   render() {
-    const { count, displayDefault, product, firstAdd, plusone, minusone, cartItems } = this.props;
+    const { count, displayDefault, product, id, firstAdd, plusone, minusone, cartItems } = this.props;
     let val = 0,showDefault = true;
-    if (cartItems.get(product.id) != undefined) {
+    if (cartItems.get(id) != undefined) {
       showDefault = false;
-      val = cartItems.get(product.id).quantity;
+      val = cartItems.get(id).quantity;
     }
 
     return (

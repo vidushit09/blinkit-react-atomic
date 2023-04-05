@@ -2,7 +2,7 @@ import React from "react";
 import SubCategoryListItem from "../../atoms/subCategoryListItem";
 import "./subCategory.css";
 import PropTypes from "prop-types";
-import { subCategoryClick } from "../../../../redux/product/productActions";
+import { subCategoryClick } from "../../../../actions/productActions";
 import { connect } from "react-redux";
 
 function SubCategory(props) {

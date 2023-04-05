@@ -1,16 +1,17 @@
 import React from "react";
-import data from "../../../../data/data.json";
 import UpdateButton from "../../../../atoms/updateButton";
 import "./checkoutItem.css";
 import PropTypes from "prop-types";
-
+import { addToCart } from "../../../../actions/cartActions";
+import { removeFromCart } from "../../../../actions/cartActions";
+import { connect } from "react-redux";
 
 class CheckoutItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       displayDefault: false,
-      count: this.props.cartItems.get(this.props.index).quantity,
+      count: this.props.product.quantity,
       cartItems: this.props.cartItems,
     };
   }
@@ -19,7 +20,7 @@ class CheckoutItem extends React.Component {
     this.setState({
       count: this.state.count + 1,
     });
-    this.props.addProduct(product);
+    this.props.addToCart(this.props.id);
   };
   minusone = (product) => {
     if (this.state.count == 1) {
@@ -32,58 +33,57 @@ class CheckoutItem extends React.Component {
         count: this.state.count - 1,
       });
     }
-    this.props.deleteProduct(product);
+    this.props.removeFromCart(this.props.id);
   };
 
-  render(){
-    const {cartItems,product,index, addProduct, deleteProduct } = this.props;
+  render() {
+    if (this.state.count != 0) {
+      const { cartItems, product, id, addToCart, removeFromCart } = this.props;
+      let thumbnail = "http://127.0.0.1:3000/" + product.thumbnail;
+      let discount = Number(product.discount);
+      let price = Number(product.original);
+      let updatedPrice = (price * (1 - 0.01 * discount)).toFixed(2);
+      let quantity = product.quantity;
+      let name = product.name;
 
-    let item = data.products.filter((obj) => obj.id == index)[0];
-    console.log(item);
-    let thumbnail = "http://127.0.0.1:3000/" + product.thumbnail;
-    let discount = Number(product.discount);
-    let price = Number(product.original);
-    let updatedPrice = (price * (1 - 0.01 * discount)).toFixed(2);
-    let quantity = product.quantity;
-    let name = product.name;
-
-    return (
-      <li className="checkout-item">
-        <div className="checkout-item__left">
-          <div className="product-id" style={{ display: "none" }}>
-            {index}
-          </div>
-          <div className="checkout-item--img">
-            <img src={thumbnail} />
-          </div>
-          <div className="item-information">
-            <div className="products-container__item-name">{name}</div>
-            <div className="checkout-container__item-weight">{quantity} kg</div>
-            <div className="checkout-item__price">
-              <div className="products-container__discounted-price">
-                ₹{updatedPrice}
+      return (
+        <li className="checkout-item">
+          <div className="checkout-item__left">
+            <div className="product-id" style={{ display: "none" }}>
+              {id}
+            </div>
+            <div className="checkout-item--img">
+              <img src={thumbnail} />
+            </div>
+            <div className="item-information">
+              <div className="products-container__item-name">{name}</div>
+              <div className="checkout-container__item-weight">
+                {quantity} kg
               </div>
-              <div className="products-container__actual-price">₹{price}</div>
+              <div className="checkout-item__price">
+                <div className="products-container__discounted-price">
+                  ₹{updatedPrice}
+                </div>
+                <div className="products-container__actual-price">₹{price}</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="checkout-item__right">
-          <UpdateButton
-            cartItems={cartItems}
-            product={item}
-            addProduct={addProduct}
-            deleteProduct={deleteProduct}
-            plusone={this.plusone}
-            minusone={this.minusone}
-          />
-        </div>
-      </li>
-    );
+          <div className="checkout-item__right">
+            <UpdateButton
+              product={product}
+              plusone={this.plusone}
+              minusone={this.minusone}
+              displayDefault={this.state.displayDefault}
+              count={this.state.count}
+              id={id}
+            />
+          </div>
+        </li>
+      );
+    } else {
+      return <></>;
+    }
   }
-
-  
-
-  
 }
 CheckoutItem.propTypes = {
   product: PropTypes.object,
@@ -92,4 +92,11 @@ CheckoutItem.defaultProps = {
   product: undefined,
 };
 
-export default CheckoutItem;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => dispatch(addToCart(id)),
+    removeFromCart: (id) => dispatch(removeFromCart(id)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CheckoutItem);

@@ -1,10 +1,9 @@
 import data from "../../data/data.json";
 import { HOMEPAGE_CONSTANTS } from "../../constants/constants.general";
-
 import {
   CATEGORY_CLICK,
   SUB_CATEGORY_CLICK
-} from "./productTypes";
+} from "../../constants/productTypes";
 
 const productState = {
   categories: data.topTabCategoryList,
@@ -28,7 +27,6 @@ const productReducer = (state = productState, action) => {
     }
 
     case SUB_CATEGORY_CLICK: {
-      console.log(state);
         if(action.subCategory==HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY){
             return{
                 ...state,

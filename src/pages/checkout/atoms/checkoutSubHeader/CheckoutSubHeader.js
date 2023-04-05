@@ -1,18 +1,26 @@
 import React from "react";
 import "./checkoutSubHeader.css";
 import PropTypes from "prop-types";
-import { getCartCount } from "../../../../helpers/getCartCount";
+//import { getCartCount } from "../../../../helpers/getCartCount";
 import { connect } from "react-redux";
 
 function CheckoutSubHeader(props){
-    console.log(typeof(props.cartItems));
+    let getCartCount=()=>{
+        if(props.cartItems.size==0)
+            return 0;
+        let quantity=0;
+        props.cartItems.forEach((value, key)=> {
+            quantity+=value.quantity;
+        })
+        return quantity;
+    }
     return (
         <>
             <div className="delivery-time">
                 Delivery in 10 minutes
             </div>
             <div className="items-count">
-                {getCartCount(props.cartItems)} items
+                {getCartCount()} items
             </div>
         </>
     )

@@ -1,7 +1,7 @@
 import {
     CATEGORY_CLICK,
     SUB_CATEGORY_CLICK
-  } from "./productTypes";
+  } from "../constants/productTypes.js"
  
   export const categoryClick = (category) => {
     return {

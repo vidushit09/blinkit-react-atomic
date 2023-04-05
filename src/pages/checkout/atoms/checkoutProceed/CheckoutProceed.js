@@ -1,9 +1,12 @@
 import React from "react";
 import "./checkoutProceed.css";
 import PropTypes from "prop-types";
+import { getCartCount } from "../../../../helpers/getCartCount";
+import { connect } from "react-redux";
 
 function CheckoutProceed(props){
-    const {cartOriginal,cartDiscount, cartCount}=props;
+    let {cartOriginal, cartDiscount, cartItems}=props
+    let cartCount=getCartCount(cartItems);
     return(
         <div className="checkout-proceed-outer">
             <div className="checkout-proceed-inner">
@@ -30,4 +33,10 @@ function CheckoutProceed(props){
     )
 }
 
-export default CheckoutProceed;
+const mapStateToProps = (state) => {
+    return {
+      cartItems: state.cart.cartItems
+    };
+  };
+  
+  export default connect(mapStateToProps)(CheckoutProceed);

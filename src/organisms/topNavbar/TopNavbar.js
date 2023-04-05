@@ -9,7 +9,6 @@ import { connect } from "react-redux";
 
 function TopNavbar(props) {
   let { cartItems,count } = props;
-  console.log(cartItems,count);
   return (
     <div className="navbar display-flex">
       <div className="navbar__left display-flex">

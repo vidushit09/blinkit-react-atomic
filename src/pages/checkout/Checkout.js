@@ -13,12 +13,6 @@ import PropTypes from "prop-types";
 import "./checkout.css";
 
 function Checkout(props) {
-  const {
-    cartItems,
-    categoryClick,
-    addProduct,
-    deleteProduct,
-  } = props;
   return (
     <>
       <TopNavbar/> 
@@ -26,8 +20,8 @@ function Checkout(props) {
       <div className="checkout">
         <CheckoutHeader />
         <CheckoutSubHeader/>
-        {/* <CheckoutItems/>
-        <CheckoutFooter />  */}
+        <CheckoutItems/> 
+        <CheckoutFooter /> 
       </div>
       <AdvertisementContainer />
       <Disclaimer />

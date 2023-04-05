@@ -28,7 +28,6 @@ class App extends React.Component {
     });
   };
   addProduct = (product) => {
-    console.log(product);
     let obj;
     let tempCartItems = this.state.cartItems;
 

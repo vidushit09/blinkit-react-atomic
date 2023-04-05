@@ -8,8 +8,7 @@ import { connect } from "react-redux";
 import "./myCart.css";
 
 function MyCart(props) {
-  let { cartItems, count } = props;
-  console.log(cartItems);
+  let { cartItems} = props;
   return (
     <>
       <Link to="/checkout">
@@ -31,11 +30,11 @@ MyCart.defaultProps = {
   cartDiscount: 0,
 };
 
-// const mapStateToProps = (state) => {
-//   console.log(state.cart.cartItems);
-//   return {
-//     cartItems: state.cart.cartItems
-//   };
-// };
 
-export default MyCart
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cart.cartItems
+  };
+};
+
+export default connect(mapStateToProps)(MyCart);

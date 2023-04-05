@@ -1,14 +1,13 @@
 import React from "react";
 import CheckoutProceed from "../../atoms/checkoutProceed";
 import "./checkoutFooter.css";
-import PropTypes from "prop-types"
-import { getCartCount } from "../../../../helpers/getCartCount";
+import PropTypes from "prop-types";
 import { getCartTotalDiscounted } from "../../../../helpers/getCartTotalDiscounted";
 import { getCartTotal} from "../../../../helpers/getCartTotal";
+import { connect } from "react-redux";
 
 function CheckoutFooter(props){
     const {cartItems}=props;
-    let cartCount=getCartCount(cartItems);
     let cartDiscount=getCartTotalDiscounted(cartItems);
     let cartOriginal=getCartTotal(cartItems);
 
@@ -55,7 +54,7 @@ function CheckoutFooter(props){
             <div className="coupons-disclaimer">
                 Coupons are only applicable on Blinkit app
             </div>
-            <CheckoutProceed cartCount={cartCount} cartOriginal={cartOriginal} cartDiscount={cartDiscount}/>
+            <CheckoutProceed cartOriginal={cartOriginal} cartDiscount={cartDiscount}/>
             
         </div>
     )
@@ -72,4 +71,10 @@ CheckoutFooter.propTypes = {
     cartOriginal:0
   }
 
-export default CheckoutFooter;
+  const mapStateToProps = (state) => {
+    return {
+      cartItems: state.cart.cartItems
+    };
+  };
+  
+  export default connect(mapStateToProps)(CheckoutFooter);

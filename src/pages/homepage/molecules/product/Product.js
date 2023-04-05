@@ -3,8 +3,8 @@ import UpdateButton from "../../../../atoms/updateButton";
 import { calculateDiscountedPrice } from "../../../../helpers/calculateDiscountedPrice.js";
 import "./product.css";
 import PropTypes from "prop-types";
-import { addToCart } from "../../../../redux/cart/cartActions";
-import { removeFromCart } from "../../../../redux/cart/cartActions";
+import { addToCart } from "../../../../actions/cartActions";
+import { removeFromCart } from "../../../../actions/cartActions"
 import { connect } from "react-redux";
 
 class Product extends React.Component {
@@ -91,6 +91,7 @@ class Product extends React.Component {
             count={this.state.count}
             displayDefault={this.state.displayDefault}
             product={product}
+            id={product.id}
             firstAdd={this.firstAdd}
             plusone={this.plusone}
             minusone={this.minusone}

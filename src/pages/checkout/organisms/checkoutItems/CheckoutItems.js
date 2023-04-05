@@ -1,16 +1,15 @@
 import React from "react";
-import SubCategoryItemsContainer from "../../../homepage/molecules/subCategoryItemsContainer";
 import CheckoutItem from "../../molecules/checkoutItem";
 import "./checkoutItems.css";
+import { connect } from "react-redux";
 
 function CheckoutItems(props){
-    const {cartItems,addProduct,deleteProduct}=props;
+    const {cartItems}=props;
     let products=[];
     
     cartItems.forEach((product,key)=>{
-        console.log(key);
         products.push(
-            <CheckoutItem cartItems={cartItems} product={product} index={key} addProduct={addProduct} deleteProduct={deleteProduct} />
+            <CheckoutItem cartItems={cartItems} product={product} id={key}/>
         )
     })
 
@@ -21,4 +20,10 @@ function CheckoutItems(props){
     )
 }
 
-export default CheckoutItems;
+const mapStateToProps = (state) => {
+    return {
+      cartItems: state.cart.cartItems
+    };
+  };
+  
+  export default connect(mapStateToProps)(CheckoutItems);
