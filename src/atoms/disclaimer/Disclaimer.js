@@ -1,9 +1,9 @@
 import React from "react";
-import "./disclaimer.css";
+import styles from "./disclaimer.module.css";
 
 function Disclaimer() {
   return (
-    <div className="disclaimer">
+    <div className={styles.disclaimer}>
       “Blinkit” is owned &amp; managed by "Blink Commerce Private Limited"
       (formerly known as Grofers India Private Limited) and is not related,
       linked or interconnected in whatsoever manner or nature, to “GROFFR.COM”

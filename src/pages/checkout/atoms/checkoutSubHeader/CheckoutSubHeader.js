@@ -1,5 +1,5 @@
 import React from "react";
-import "./checkoutSubHeader.css";
+import styles from "./checkoutSubHeader.module.css";
 import PropTypes from "prop-types";
 import { getCartCount } from "../../../../helpers/getCartCount";
 
@@ -7,8 +7,8 @@ function CheckoutSubHeader(props) {
   let { cartItems } = props;
   return (
     <>
-      <div className="delivery-time">Delivery in 10 minutes</div>
-      <div className="items-count">{getCartCount(cartItems)} items</div>
+      <div className={styles.deliveryTime}>Delivery in 10 minutes</div>
+      <div className={styles.itemsCount}>{getCartCount(cartItems)} items</div>
     </>
   );
 }

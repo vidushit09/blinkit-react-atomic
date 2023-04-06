@@ -1,15 +1,14 @@
-import data from "../data/data.json"
 import _property from 'lodash/property';
 
-const id = _property.data.products.id;
-const discount=_property.data.products.discount;
-const thumbnail=_property.data.products.thumbnail;
-const name=_property.data.products.name;
-const sourcedAt=_property.data.products.sourcedAt;
-const quantity=_property.data.products.quantity;
-const price=_property.data.products.price;
-const category=_property.data.products.category;
-const subCategory=_property.data.products.subCategory;
+const id = _property("id");
+const discount=_property("discount");
+const thumbnail=_property("thumbnail");
+const name=_property("name");
+const sourcedAt=_property("sourcedAt");
+const quantity=_property("quantity");
+const price=_property("price");
+const category=_property("category");
+const subCategory=_property("subCategory");
 
 export default{
     id,

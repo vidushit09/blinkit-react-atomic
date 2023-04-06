@@ -9,7 +9,7 @@ import AdvertisementContainer from "../../molecules/advertisementContainer";
 import Disclaimer from "../../atoms/disclaimer";
 import Footer from "../../organisms/footer";
 import PropTypes from "prop-types";
-import "./checkout.css";
+import styles from "./checkout.module.css";
 import { connect } from "react-redux";
 
 
@@ -21,7 +21,7 @@ function Checkout(props) {
     <>
       <TopNavbar cartItems={cartItems}/> 
       <CategoriesNavbar/>
-      <div className="checkout">
+      <div className={styles.checkout}>
         <CheckoutHeader />
         <CheckoutSubHeader cartItems={cartItems}/>
         <CheckoutItems/> 

@@ -1,14 +1,14 @@
 import React from "react";
 import CategoryMore from "./atoms/categoryMore";
 import PropTypes from "prop-types";
-import "./categoriesNavbar.css";
+import styles from "./categoriesNavbar.module.css";
+import stylesCommon from "../../App.module.css";
 import { categoryClick } from "../../actions/productActions";
 import { connect } from "react-redux";
 import { categoryListHelper } from "./helpers/categoryListHelper";
 
 function CategoriesNavbar(props) {
-  let list,
-    i = 7;
+  let list;
   const { categories, categoryClick } = props;
   if (categories.length <= 7) {
     list = categoryListHelper(categories, categoryClick);
@@ -22,7 +22,7 @@ function CategoriesNavbar(props) {
     );
   }
   return (
-    <ul className="category-list display-flex" id="category-list">
+    <ul className={`${styles.categoryList} ${stylesCommon.displayFlex}`}>
       {list}
     </ul>
   );

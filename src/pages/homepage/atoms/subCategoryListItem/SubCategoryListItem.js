@@ -1,22 +1,24 @@
 import React from "react";
-import "./subCategoryListItem.css";
+import styles from "./subCategoryListItem.module.css";
+import stylesCommon from "../../../../App.module.css";
 import PropTypes from "prop-types";
 
 function SubCategoryListItem(props) {
   const { subCategory, currSubCategory, subCategoryClick } = props;
   let path = "http://127.0.0.1:3000/" + subCategory.categoryThumbnail;
+  console.log(styles.categoryActive, styles.categoryInactive);
   return (
     <>
       <li
         className={
           currSubCategory == subCategory.subCategory
-            ? "products-container__category--active display-flex"
-            : "products-container__category--inactive display-flex"
+            ? `${styles.categoryActive} ${stylesCommon.displayFlex}`
+            : `${styles.categoryInactive} ${stylesCommon.displayFlex}`
         }
         onClick={()=>subCategoryClick(subCategory.subCategory)}
       >
-        <div className="products-container__category__category-image">
-          <img src={path} className="products-container__category-image-img" />
+        <div className={styles.category__categoryImage }>
+          <img src={path} className={styles.categoryImage__img} />
         </div>
         {subCategory.subCategory}
       </li>

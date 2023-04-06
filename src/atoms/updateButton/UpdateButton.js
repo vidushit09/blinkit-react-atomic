@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./updateButton.css";
+import styles from "./updateButton.module.css";
 import { connect } from "react-redux";
+var _ = require('lodash');
 
 class UpdateButton extends React.Component {
   constructor(props) {
@@ -14,24 +15,24 @@ class UpdateButton extends React.Component {
   render() {
     const { count, displayDefault, product, id, firstAdd, plusone, minusone, cartItems } = this.props;
     let val = 0,showDefault = true;
-    if (cartItems.get(id) != undefined) {
+    if (cartItems?.get(id) != undefined) {
       showDefault = false;
-      val = cartItems.get(id).quantity;
+      val = cartItems?.get(id).quantity;
     }
 
     return (
       <>
         <button
-          id="products-container__item-add--default"
-          className="products-container__item--add-default"
+          id={styles.itemAddDefault}
+          className={styles.itemAddDefault}
           onClick={() => firstAdd(product)}
           style={{ display: showDefault ? "block" : "none" }}
         >
           ADD
         </button>
         <div
-          id="products-container__item-add--updated"
-          className="products-container__item--add-updated"
+          id={styles.itemAddUpdated}
+          className={styles.itemAddUpdated}
           style={{ display: showDefault ? "none" : "flex" }}
         >
           <i

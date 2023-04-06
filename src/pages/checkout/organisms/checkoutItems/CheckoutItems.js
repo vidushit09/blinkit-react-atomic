@@ -1,6 +1,5 @@
 import React from "react";
-import CheckoutItem from "../../molecules/checkoutItem";
-import "./checkoutItems.css";
+import styles from "./checkoutItems.module.css";
 import { connect } from "react-redux";
 import { checkoutItemsHelper } from "../../helpers/checkoutItemsHelper";
 
@@ -9,7 +8,7 @@ function CheckoutItems(props){
     let products=checkoutItemsHelper(cartItems);
 
     return(
-        <ul className="checkout-items-list">
+        <ul className={styles.list}>
             {products}
         </ul>
     )

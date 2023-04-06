@@ -1,4 +1,4 @@
-.navbar__mycart {
+.mycart {
   background-color: rgb(12, 131, 31);
   width: 11rem;
   height: 5rem;
@@ -14,14 +14,14 @@
 
 }
 
-.navbar__mycart:hover {
+.mycart:hover {
   cursor: pointer;
 }
-.navbar__mycart i {
+.mycart i {
   font-size: 1.7rem;
   margin-right: 0.9rem;
 }
-.my-cart-text {
+.mycart__text {
   text-align: left;
 }
 .cartRight div{

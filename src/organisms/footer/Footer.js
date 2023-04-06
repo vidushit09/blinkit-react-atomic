@@ -1,16 +1,17 @@
 import React from "react";
 import Copyright from "../../atoms/copyright";
 import DownloadOptions from "../../molecules/downloadOptions";
-import "./footer.css";
+import styles from "./footer.module.css";
+import stylesCommon from "../../App.module.css";
 
 function Footer() {
   return (
-    <div className="footer display-flex">
-      <div className="footer__left display-flex">
+    <div className={`${styles.footer} ${stylesCommon.displayFlex}`}>
+      <div className={`${styles.left} ${stylesCommon.displayFlex}`}>
         <Copyright />
         <DownloadOptions />
       </div>
-      <div className="footer__right">
+      <div className={styles.right}>
         <button>
           <i className="fa fa-facebook" aria-hidden="true"></i>
         </button>

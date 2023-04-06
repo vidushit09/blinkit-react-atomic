@@ -1,0 +1,10 @@
+.listItem {
+  height: 100%;
+  padding: 0rem 1.5rem;
+  color: #6a6868;
+}
+.listItem:hover {
+  height: 6rem;
+  cursor: pointer;
+  background-color: #8080801c;
+}

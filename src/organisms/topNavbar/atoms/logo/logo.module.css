@@ -1,0 +1,13 @@
+.logo {
+  border-right: 0.12rem solid #eeee;
+  font-size: 4.5rem;
+  letter-spacing: -0.3rem;
+  font-weight: bold;
+  padding: 0rem 3rem;
+}
+.logoYellow {
+  color: #f8cb46;
+}
+.logoGreen {
+  color: #54b226;
+}

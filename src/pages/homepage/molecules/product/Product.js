@@ -1,11 +1,12 @@
 import React from "react";
 import UpdateButton from "../../../../atoms/updateButton";
 import { calculateDiscountedPrice } from "../../../../helpers/calculateDiscountedPrice.js";
-import "./product.css";
+import styles from "./product.module.css";
 import PropTypes from "prop-types";
 import { addToCart } from "../../../../actions/cartActions";
 import { removeFromCart } from "../../../../actions/cartActions"
 import { connect } from "react-redux";
+import productReader from "../../../../readers/productReader";
 
 class Product extends React.Component {
   constructor(props) {
@@ -14,8 +15,8 @@ class Product extends React.Component {
       this.state = {
         displayDefault: true,
         count:
-          this.props.cartItems.get(String(this.props.index)) != undefined
-            ? this.props.cartItems.get(String(this.props.index)).quantity
+          this.props.cartItems?.get(String(this.props.index)) != undefined
+            ? this.props.cartItems?.get(String(this.props.index)).quantity
             : 0,
       };
     } else {
@@ -30,13 +31,13 @@ class Product extends React.Component {
       displayDefault: false,
       count: this.state.count + 1,
     });
-    this.props.addToCart(product.id);
+    this.props.addToCart(productReader.id(product));
   };
   plusone = (product) => {
     this.setState({
       count: this.state.count + 1,
     });
-    this.props.addToCart(product.id);
+    this.props.addToCart(productReader.id(product));
   };
 
   minusone = (product) => {
@@ -50,48 +51,48 @@ class Product extends React.Component {
         count: this.state.count - 1,
       });
     }
-    this.props.removeFromCart(product.id);
+    this.props.removeFromCart(productReader.id(product));
   };
   render() {
-    let { key, product, products, count, cart, addToCart, removeFromCart } =this.props;
-    let path = "http://127.0.0.1:3000/" + product.thumbnail;
+    let { product, addToCart, removeFromCart } =this.props;
+    let path = "http://127.0.0.1:3000/" + productReader.thumbnail(product);
     let displayDefault = this.state.displayDefault;
 
     if (parseInt(this.state.count) != 0) {
       displayDefault = false;
     }
     return (
-      <div className="products-container__item">
-        <div className="product-id" style={{ display: "none" }}>
-          {product.id}
+      <div className={styles.item}>
+        <div style={{ display: "none" }}>
+          {productReader.id(product)}
         </div>
-        <div className="products-container__item-image">
-          <div className="products-container__discount">
-            {product.discount}% OFF{" "}
+        <div className={styles.itemImage}>
+          <div className={styles.discount}>
+            {productReader.discount(product)}% OFF{" "}
           </div>
-          <img src={path} className="product-container__item--img" />
-          <div className="products-container__sourced-at">
-            Sourced at {product.sourcedAt}
+          <img src={path} className={styles.item__img} />
+          <div className={styles.sourcedAt}>
+            Sourced at {productReader.sourcedAt(product)}
           </div>
         </div>
-        <div className="products-container__item-name">{product.name}</div>
-        <div className="products-container__item-weight">
-          {product.quantity} kg
+        <div className={styles.itemName}>{productReader.name(product)}</div>
+        <div className={styles.itemWeight}>
+          {productReader.quantity(product)} kg
         </div>
-        <div className="products-container__item-footer">
-          <div className="products-container__price-details">
-            <div className="products-container__discounted-price">
-              ₹{calculateDiscountedPrice(product.price, product.discount)}
+        <div className={styles.itemFooter}>
+          <div className={styles.priceDetails}>
+            <div className={styles.discountedPrice}>
+              ₹{calculateDiscountedPrice(productReader.price(product), productReader.discount(product))}
             </div>
-            <div className="products-container__actual-price">
-              ₹{product.price}
+            <div className={styles.actuaPrice}>
+              ₹{productReader.price(product)}
             </div>
           </div>
           <UpdateButton
             count={this.state.count}
             displayDefault={this.state.displayDefault}
             product={product}
-            id={product.id}
+            id={productReader.id(product)}
             firstAdd={this.firstAdd}
             plusone={this.plusone}
             minusone={this.minusone}
@@ -104,18 +105,13 @@ class Product extends React.Component {
 
 Product.propTypes = {
   product: PropTypes.object,
+  count: PropTypes.number
 };
 Product.defaultProps = {
   product: undefined,
+  count: 0
 };
 
-const mapStateToProps = (state) => {
-  return {
-    products: state.product.products,
-    count: state.product.count,
-    cart: state.cart.cartItems,
-  };
-};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -124,4 +120,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(null, mapDispatchToProps)(Product);

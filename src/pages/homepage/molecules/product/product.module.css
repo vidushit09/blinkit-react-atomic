@@ -1,0 +1,53 @@
+.item {
+  padding: 1.5rem;
+  border: 0.07rem solid #d6d6d6;
+  width: 18.53rem;
+}
+.itemImage {
+  position: relative;
+  height: 13rem;
+}
+
+.item__img {
+  width: 70%;
+  display: block;
+  margin: auto;
+  height: 84%;
+}
+.discount {
+  background: rgb(37, 111, 239);
+  color: white;
+  padding: 0.22rem;
+  border-radius: 0.6rem;
+  position: absolute;
+  font-size: 1.1rem;
+}
+
+.sourcedAt {
+  background: rgb(235, 255, 239);
+  float: right;
+  color: rgb(58, 183, 87);
+  font-size: 1rem;
+  padding: 0.3rem;
+}
+.itemName {
+  font-size: 1.68rem;
+}
+.itemWeight {
+  font-size: 1.34rem;
+  margin-top: 1.5rem;
+  color: #666666;
+}
+.itemFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+.actualPrice {
+  font-size: 1.34rem;
+  text-decoration: line-through;
+  color: rgb(153, 153, 153);
+}
+.discountedPrice {
+  font-size: 1.51rem;
+}

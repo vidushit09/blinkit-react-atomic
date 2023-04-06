@@ -4,18 +4,18 @@ import DeliveryDetails from "./atoms/deliveryDetails";
 import Login from "./atoms/login";
 import MyCart from "./atoms/myCart";
 import PropTypes from "prop-types";
-import "./topNavbar.css";
-import { connect } from "react-redux";
+import styles from "./topNavbar.module.css";
+import stylesCommon from "../../App.module.css";
 
 function TopNavbar(props) {
   let { cartItems} = props;
   return (
-    <div className="navbar display-flex">
-      <div className="navbar__left display-flex">
+    <div className={`${styles.navbar} ${stylesCommon.displayFlex}`}>
+      <div className={stylesCommon.displayFlex}>
         <Logo />
         <DeliveryDetails />
       </div>
-      <div className="navbar__right">
+      <div>
         <Login />
         <MyCart cartItems={cartItems}/>
       </div>

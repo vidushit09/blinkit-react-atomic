@@ -1,21 +1,13 @@
 import React from "react";
-import Product from "../product";
-import "./productsContainerItems.css";
+import styles from "./productsContainerItems.module.css";
 import PropTypes from "prop-types";
-
+import {productsContainerItemsHelper} from "./helpers/productsContainerItemsHelper.js";
 
 function ProductsContainerItems(props) {
   const {products}=props;
-  let list = products.map((product) => {
-    return (
-      <Product
-        key={product.id}
-        product={product}
-      />
-    );
-  });
+  let list = productsContainerItemsHelper(products);
   return (
-    <div className="products-container__items" id="products-container__items">
+    <div className={styles.items}>
       {list}
     </div>
   );

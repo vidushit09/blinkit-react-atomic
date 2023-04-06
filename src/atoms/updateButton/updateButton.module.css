@@ -1,0 +1,27 @@
+.itemAddDefault {
+  color: rgb(12, 131, 31);
+  border: 0.13rem solid rgb(12, 131, 31);
+  background-color: #f6fff9;
+  padding: 0rem 2.1rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.itemAddUpdated {
+  height: 3rem;
+  color: white;
+  border: 0.13rem solid rgb(12, 131, 31);
+  background-color: rgb(12, 131, 31);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 0.5rem;
+  width: 6.3rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.itemAddDefault:hover {
+  cursor: pointer;
+  background-color: #e4faec;
+}

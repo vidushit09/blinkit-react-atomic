@@ -1,0 +1,14 @@
+.login {
+  color: #494545;
+  font-weight: lighter;
+  font-size: 1.67rem;
+  padding: 1.5rem;
+  border: none;
+  background: white;
+}
+.login:hover {
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background-color: #dadada;
+  transition-duration: 0.5s;
+}

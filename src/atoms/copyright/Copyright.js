@@ -1,9 +1,9 @@
 import React from "react";
-import "./copyright.css";
+import styles from "./copyright.module.css";
 
 function Copyright() {
   return (
-    <div className="footer__copyright">
+    <div className={styles.copyright}>
       © Blink Commerce Private Limited (formerly known as Grofers India Private
       Limited), 2016-2023
     </div>

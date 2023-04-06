@@ -1,6 +1,6 @@
 import React from "react";
 import UpdateButton from "../../../../atoms/updateButton";
-import "./checkoutItem.css";
+import styles from "./checkoutItem.module.css";
 import PropTypes from "prop-types";
 import { addToCart } from "../../../../actions/cartActions";
 import { removeFromCart } from "../../../../actions/cartActions";
@@ -47,28 +47,28 @@ class CheckoutItem extends React.Component {
       let name = product.name;
 
       return (
-        <li className="checkout-item">
-          <div className="checkout-item__left">
+        <li className={styles.item}>
+          <div className={styles.item__left}>
             <div className="product-id" style={{ display: "none" }}>
               {id}
             </div>
-            <div className="checkout-item--img">
+            <div className={styles.item__img}>
               <img src={thumbnail} />
             </div>
-            <div className="item-information">
-              <div className="products-container__item-name">{name}</div>
-              <div className="checkout-container__item-weight">
+            <div>
+              <div className={styles.itemName}>{name}</div>
+              <div className={styles.container__itemWeight}>
                 {quantity} kg
               </div>
-              <div className="checkout-item__price">
-                <div className="products-container__discounted-price">
+              <div className={styles.item__price}>
+                <div className={styles.discountedPrice}>
                   ₹{updatedPrice}
                 </div>
-                <div className="products-container__actual-price">₹{price}</div>
+                <div className={styles.actualPrice}>₹{price}</div>
               </div>
             </div>
           </div>
-          <div className="checkout-item__right">
+          <div className={styles.item__right}>
             <UpdateButton
               product={product}
               plusone={this.plusone}

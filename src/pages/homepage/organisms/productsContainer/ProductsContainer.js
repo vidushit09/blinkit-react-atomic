@@ -1,14 +1,14 @@
 import React from "react";
 import SubCategory from "../../molecules/subCategory";
 import SubCategoryItemsContainer from "../../molecules/subCategoryItemsContainer";
-import "./productsContainer.css";
+import styles from "./productsContainer.module.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 function ProductsContainer(props) {
   const { products } = props;
   return (
-    <div className="products-container">
+    <div className={styles.productsContainer}>
       <SubCategory />
       <SubCategoryItemsContainer products={products} />
     </div>

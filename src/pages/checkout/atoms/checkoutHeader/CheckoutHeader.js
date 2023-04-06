@@ -1,9 +1,9 @@
 import React from "react";
-import "./checkoutHeader.css";
+import styles from "./checkoutHeader.module.css";
 
 function CheckoutHeader(){
     return(
-        <div className="checkout-header">
+        <div className={styles.header}>
             Place Order
         </div>
     )

@@ -1,0 +1,51 @@
+.item {
+  width: 89.94rem;
+  margin: auto;
+  height: 14rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item__left {
+  display: flex;
+  align-items: center;
+}
+.container__itemWeight {
+  font-size: 1.34rem;
+  margin-top: 0.2rem;
+  color: #666666;
+}
+
+.item__price {
+  display: flex;
+  margin-top: 1.5rem;
+}
+.item__price .actualPrice {
+  margin-left: 0.5rem;
+  font-size: 1.52rem;
+}
+.item__img {
+  border: 0.1rem solid rgb(194 191 191 / 29%);
+  height: 12rem;
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.item__img img {
+  height: 10rem;
+  margin: auto;
+}
+.actualPrice{
+  font-size: 1.34rem;
+  text-decoration: line-through;
+  color: rgb(153, 153, 153);
+}
+.discountedPrice{
+  font-size: 1.51rem;
+}
+.itemName{
+  font-size: 1.68rem;
+}

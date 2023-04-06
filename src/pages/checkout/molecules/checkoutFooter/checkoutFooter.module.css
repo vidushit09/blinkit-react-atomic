@@ -1,0 +1,43 @@
+.footer {
+  margin-top: 6rem;
+}
+.mrpDetails,
+.discountDetails,
+.deliveryDetails,
+.totalDetails {
+  width: 89.94rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  color: rgb(94, 93, 93);
+}
+.mrpText,
+.discountText,
+.deliveryText {
+  font-size: 1.5rem;
+  color: rgb(94, 93, 93);
+  margin: 0.2rem 0rem;
+}
+.deliveryCharge {
+  display: flex;
+}
+.deliveryCharge .striked {
+  margin-right: 0.5rem;
+  text-decoration: line-through;
+}
+.deliveryCharge .free,
+.discount {
+  color: #54b226;
+}
+.totalDetails {
+  font-weight: bold;
+  color: black;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+.couponsDisclaimer {
+  margin-top: 3rem;
+  color: gray;
+  font-size: 1.2rem;
+}

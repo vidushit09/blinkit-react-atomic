@@ -1,8 +1,8 @@
 import React from "react";
-import "./login.css";
+import styles from "./login.module.css";
 
 function Login() {
-  return <button className="navbar__login">Login</button>;
+  return <button className={styles.login}>Login</button>;
 }
 
 export default Login;

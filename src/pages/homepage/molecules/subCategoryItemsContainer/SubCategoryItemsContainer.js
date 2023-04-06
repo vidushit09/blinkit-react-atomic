@@ -14,7 +14,7 @@ class SubCategoryItemsContainer extends React.Component {
   render() {
     const {products} = this.props;
     return (
-      <div className="products-container__items-container">
+      <div>
         <ProductsContainerItemsHeader sortBy={this.sortBy} />
         <ProductsContainerItems
           products={products}

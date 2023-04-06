@@ -1,15 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./category.css";
+import styles from "./category.module.css";
+import stylesCommon from "../../../../App.module.css";
 
 function Category(props) {
   const { category, categoryClick } = props;
   return (
     <Link to="/">
       <li
-        className="category-list__list-item display-flex"
-        onClick={()=>props.categoryClick(props.category)}
+        className={`${styles.listItem} ${stylesCommon.displayFlex}`}
+        onClick={()=>categoryClick(props.category)}
       >
         {category}
       </li>

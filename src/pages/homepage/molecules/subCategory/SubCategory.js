@@ -1,6 +1,6 @@
 import React from "react";
-import SubCategoryListItem from "../../atoms/subCategoryListItem";
-import "./subCategory.css";
+import styles from "./subCategory.module.css";
+import stylesCommon from "../../../../App.module.css";
 import PropTypes from "prop-types";
 import { subCategoryClick } from "../../../../actions/productActions";
 import { connect } from "react-redux";
@@ -13,19 +13,18 @@ function SubCategory(props) {
   let path = "http://127.0.0.1:3000/" + subCategories[0].categoryThumbnail;
   return (
     <ul
-      className="products-container__category"
-      id="products-container__category"
+      className={styles.category}
     >
       <li
         className={
           currSubCategory == "All"
-            ? "products-container__category--active display-flex"
-            : "products-container__category--inactive display-flex"
+            ? `${styles.categoryActive} ${stylesCommon.displayFlex}`
+            : `${styles.categoryInactive} ${stylesCommon.displayFlex}`
         }
         onClick={()=>subCategoryClick("All")}
       >
-        <div className="products-container__category__category-image">
-          <img src={path} className="products-container__category-image-img" />
+        <div className={styles.categoryImage }>
+          <img src={path} className={styles.categoryImage__img} />
         </div>
         All
       </li>

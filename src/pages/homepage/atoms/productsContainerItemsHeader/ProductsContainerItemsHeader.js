@@ -1,18 +1,19 @@
 import React from "react";
-import "./productsContainerItemsHeader.css";
+import styles from "./productsContainerItemsHeader.module.css";
+import stylesCommon from "../../../../App.module.css";
 
 function ProductsContainerItemsHeader(props) {
     return (
-        <div className="products-container__items-header display-flex">
-            <div className="products-container__buy-fresh-online">
+        <div className={`${styles.header} ${stylesCommon.displayFlex}`}>
+            <div className={styles.buyFreshOnline}>
                 Buy Fresh Vegetables Online
             </div>
-            <div className="products-container__items-header-right display-flex">
-                <div className="products-container__sort">Sort By</div>
+            <div className={stylesCommon.displayFlex}>
+                <div className={styles.sort}>Sort By</div>
                 <select
                     name="dropdown"
-                    id="sort-dropdown"
-                    className="products-container__dropdown"
+                    id={styles.sortDropdown}
+                    className={styles.dropdown}
                     onChange={props.sortBy}
                 >
                     <option>Relevance</option>

@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./downloadButton.css";
+import styles from "./downloadButton.module.css";
 
 function DownloadButton(props) {
   let path = "http://127.0.0.1:3000/" + props.url;
   return (
     <>
-      <button className="footer__download-button">
+      <button className={styles.download__button}>
         <img src={path} alt="" />
       </button>
     </>

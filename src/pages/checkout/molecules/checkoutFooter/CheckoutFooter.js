@@ -1,6 +1,6 @@
 import React from "react";
 import CheckoutProceed from "../../atoms/checkoutProceed";
-import "./checkoutFooter.css";
+import styles from "./checkoutFooter.module.css";
 import PropTypes from "prop-types";
 import { getCartTotalDiscounted } from "../../../../helpers/getCartTotalDiscounted";
 import { getCartTotal } from "../../../../helpers/getCartTotal";
@@ -11,29 +11,29 @@ function CheckoutFooter(props) {
   let cartOriginal = getCartTotal(cartItems);
 
   return (
-    <div className="checkout-footer">
-      <div className="mrp-details">
-        <div className="mrp-text">MRP</div>
-        <div className="mrp">₹{cartOriginal}</div>
+    <div className={styles.footer}>
+      <div className={styles.mrpDetails}>
+        <div className={styles.mrpText}>MRP</div>
+        <div className={styles.mrp}>₹{cartOriginal}</div>
       </div>
-      <div className="discount-details">
-        <div className="discount-text">Product discount</div>
-        <div className="discount">
+      <div className={styles.discountDetails}>
+        <div className={styles.discountText}>Product discount</div>
+        <div className={styles.discount}>
           -₹{(cartOriginal - cartDiscount).toFixed(2)}
         </div>
       </div>
-      <div className="delivery-details">
-        <div className="delivery-text">Delivery Charge</div>
-        <div className="delivery-charge">
-          <div className="striked">₹15</div>
-          <div className="free">FREE</div>
+      <div className={styles.deliveryDetails}>
+        <div className={styles.deliveryText}>Delivery Charge</div>
+        <div className={styles.deliveryCharge}>
+          <div className={styles.striked}>₹15</div>
+          <div className={styles.free}>FREE</div>
         </div>
       </div>
-      <div className="total-details">
-        <div className="total-text">Grand total</div>
-        <div className="total">₹{cartDiscount}</div>
+      <div className={styles.totalDetails}>
+        <div className={styles.totalText}>Grand total</div>
+        <div className={styles.total}>₹{cartDiscount}</div>
       </div>
-      <div className="coupons-disclaimer">
+      <div className={styles.couponsDisclaimer}>
         Coupons are only applicable on Blinkit app
       </div>
       <CheckoutProceed

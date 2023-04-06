@@ -1,7 +1,9 @@
 import data from "../../../data/data.json";
+var _ = require("lodash");
+
 export const getItems=(subCategory,category)=>{
     if(subCategory=="All")
-        return data.products.filter(obj=>obj.category==category);
+        return _.get(data,'products').filter(obj=>obj.category==category);
     else
-        return data.products.filter(obj=>obj.subCategory==subCategory);
+        return _.get(data,'products').filter(obj=>obj.subCategory==subCategory);
 }
