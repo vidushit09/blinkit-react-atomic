@@ -1,8 +1,8 @@
 import data from "../data/data.json";
-var _ = require("lodash");
+import lodash from "lodash";
 
 const getSubCategory = (category) => {
-  return _.get(data, "leftTabCategoryList").filter(
+  return lodash.get(data, "leftTabCategoryList").filter(
     (obj) => obj.category == category
   );
 };

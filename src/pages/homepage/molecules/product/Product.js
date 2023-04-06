@@ -93,7 +93,7 @@ class Product extends React.Component {
                 productReader.discount(product)
               )}
             </div>
-            <div className={styles.actuaPrice}>
+            <div className={styles.actualPrice}>
               ₹{productReader.price(product)}
             </div>
           </div>

@@ -4,17 +4,17 @@ import {
   CATEGORY_CLICK,
   SUB_CATEGORY_CLICK,
 } from "../../constants/productTypes";
-var _ = require("lodash");
+import lodash from "lodash";
 
 const productState = {
-  categories: _.get(data, "topTabCategoryList"),
-  category: _.get(data, "topTabCategoryList[0]"),
+  categories: lodash.get(data, "topTabCategoryList"),
+  category: lodash.get(data, "topTabCategoryList[0]"),
   subCategory: HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
-  products: _.get(data, "products").filter(
-    (obj) => obj.category == _.get(data, "topTabCategoryList[0]")
+  products: lodash.get(data, "products").filter(
+    (obj) => obj.category == lodash.get(data, "topTabCategoryList[0]")
   ),
-  subCategories: _.get(data, "leftTabCategories").filter(
-    (obj) => obj.category == _.get(data, "topTabCategoryList[0]")
+  subCategories: lodash.get(data, "leftTabCategories").filter(
+    (obj) => obj.category == lodash.get(data, "topTabCategoryList[0]")
   ),
 };
 
@@ -25,10 +25,10 @@ const productReducer = (state = productState, action) => {
         ...state,
         category: action.category,
         subCategory: HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
-        products: _.get(data, "products").filter(
+        products: lodash.get(data, "products").filter(
           (obj) => obj.category == action.category
         ),
-        subCategories: _.get(data, "leftTabCategories").filter(
+        subCategories: lodash.get(data, "leftTabCategories").filter(
           (obj) => obj.category == action.category
         ),
       };
@@ -39,7 +39,7 @@ const productReducer = (state = productState, action) => {
         return {
           ...state,
           subCategory: HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
-          products: _.get(data, "products").filter(
+          products: lodash.get(data, "products").filter(
             (obj) => obj.category == state.category
           ),
         };
@@ -47,7 +47,7 @@ const productReducer = (state = productState, action) => {
         return {
           ...state,
           subCategory: action.subCategory,
-          products: _.get(data, "products").filter(
+          products: lodash.get(data, "products").filter(
             (obj) => obj.subCategory == action.subCategory
           ),
         };

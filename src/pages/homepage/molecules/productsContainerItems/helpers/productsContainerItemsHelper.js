@@ -1,8 +1,8 @@
 import Product from "../../product/Product";
-var _ = require("lodash");
+import lodash from "lodash";
 
 function productsContainerItemsHelper(products) {
-  return _.map(products, (product) => {
+  return lodash.map(products, (product) => {
     return <Product product={product} />;
   });
 }

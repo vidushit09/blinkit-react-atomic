@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import styles from "./updateButton.module.css";
 import { connect } from "react-redux";
 import { DEFAULT_OBJECT } from "../../constants/constants.general";
-var _ = require("lodash");
 
 class UpdateButton extends React.Component {
   constructor(props) {

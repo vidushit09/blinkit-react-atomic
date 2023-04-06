@@ -3,7 +3,6 @@ import "./App.module.css";
 import { Route, Routes } from "react-router";
 import Homepage from "./pages/homepage";
 import Checkout from "./pages/checkout";
-var _ = require("lodash");
 
 class App extends React.Component {
   render() {

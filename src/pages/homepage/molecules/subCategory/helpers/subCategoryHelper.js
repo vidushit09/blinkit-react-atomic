@@ -1,8 +1,8 @@
 import SubCategoryListItem from "../../../atoms/subCategoryListItem";
-var _ = require("lodash");
+import lodash from "lodash";
 
 function subCategoryHelper(subCategories, currSubCategory, subCategoryClick) {
-  return _.map(subCategories, (subCategory, index) => {
+  return lodash.map(subCategories, (subCategory, index) => {
     return (
       <SubCategoryListItem
         key={index}

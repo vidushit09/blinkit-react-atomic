@@ -1,6 +1,6 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "../../constants/cartTypes";
 import data from "../../data/data.json";
-var _ = require("lodash");
+import lodash from "lodash";
 
 const cartState = {
   cartCount: 0,
@@ -13,7 +13,7 @@ const cartReducer = (state = cartState, action) => {
       let newData = state.cartItems;
       let id = action.payload.id;
 
-      let item = _.get(data, "products").filter((obj) => obj.id == id)[0];
+      let item = lodash.get(data, "products").filter((obj) => obj.id == id)[0];
       let price = Number(item["price"]);
       let discount = Number(item["discount"]);
       let discountedPrice = (price * (1 - 0.01 * discount)).toFixed(2);

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-var _ = require("lodash");
+import lodash from "lodash";
 function categoryMoreHelper(categories, categoryClick) {
-  let list = _.map(categories, (category, index) => {
+  let list = lodash.map(categories, (category, index) => {
     return (
       <Link to="/">
         <li onClick={() => categoryClick(category)} key={index}>
