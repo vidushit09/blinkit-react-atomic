@@ -15,7 +15,7 @@ function DownloadButton(props) {
 DownloadButton.propTypes = {
   url: PropTypes.string,
 };
-DownloadButton.defaultProps={
-  url:undefined
-}
+DownloadButton.defaultProps = {
+  url: undefined,
+};
 export default DownloadButton;

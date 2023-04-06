@@ -8,22 +8,24 @@ import { subCategoryHelper } from "./helpers/subCategoryHelper";
 
 function SubCategory(props) {
   const { currSubCategory, subCategories, subCategoryClick } = props;
-  let list = subCategoryHelper(subCategories, currSubCategory, subCategoryClick);
-  
+  let list = subCategoryHelper(
+    subCategories,
+    currSubCategory,
+    subCategoryClick
+  );
+
   let path = "http://127.0.0.1:3000/" + subCategories[0].categoryThumbnail;
   return (
-    <ul
-      className={styles.category}
-    >
+    <ul className={styles.category}>
       <li
         className={
           currSubCategory == "All"
             ? `${styles.categoryActive} ${stylesCommon.displayFlex}`
             : `${styles.categoryInactive} ${stylesCommon.displayFlex}`
         }
-        onClick={()=>subCategoryClick("All")}
+        onClick={() => subCategoryClick("All")}
       >
-        <div className={styles.categoryImage }>
+        <div className={styles.categoryImage}>
           <img src={path} className={styles.categoryImage__img} />
         </div>
         All
@@ -33,27 +35,25 @@ function SubCategory(props) {
   );
 }
 SubCategory.propTypes = {
-  currSubCategory:PropTypes.string,
+  currSubCategory: PropTypes.string,
   subCategories: PropTypes.array,
 };
 SubCategory.defaultProps = {
-  currSubCategory:undefined,
-  subCategories:[]
+  currSubCategory: undefined,
+  subCategories: [],
 };
-
 
 const mapStateToProps = (state) => {
   return {
     subCategories: state.product.subCategories,
-    currSubCategory: state.product.subCategory
+    currSubCategory: state.product.subCategory,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
-return {
-  subCategoryClick: (subCategory)=> dispatch(subCategoryClick(subCategory))
-};
+  return {
+    subCategoryClick: (subCategory) => dispatch(subCategoryClick(subCategory)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubCategory);
-

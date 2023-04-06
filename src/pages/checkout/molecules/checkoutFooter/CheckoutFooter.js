@@ -4,6 +4,7 @@ import styles from "./checkoutFooter.module.css";
 import PropTypes from "prop-types";
 import { getCartTotalDiscounted } from "../../../../helpers/getCartTotalDiscounted";
 import { getCartTotal } from "../../../../helpers/getCartTotal";
+import { DEFAULT_OBJECT } from "../../../../constants/constants.general";
 
 function CheckoutFooter(props) {
   const { cartItems } = props;
@@ -49,7 +50,7 @@ CheckoutFooter.propTypes = {
   cartItems: PropTypes.object,
 };
 CheckoutFooter.defaultProps = {
-  cartItems: {},
+  cartItems: DEFAULT_OBJECT
 };
 
 export default CheckoutFooter;

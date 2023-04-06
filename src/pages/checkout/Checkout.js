@@ -11,21 +11,19 @@ import Footer from "../../organisms/footer";
 import PropTypes from "prop-types";
 import styles from "./checkout.module.css";
 import { connect } from "react-redux";
-
+import { DEFAULT_OBJECT } from "../../constants/constants.general";
 
 function Checkout(props) {
-  const {
-    cartItems
-  } = props;
+  const { cartItems } = props;
   return (
     <>
-      <TopNavbar cartItems={cartItems}/> 
-      <CategoriesNavbar/>
+      <TopNavbar cartItems={cartItems} />
+      <CategoriesNavbar />
       <div className={styles.checkout}>
         <CheckoutHeader />
-        <CheckoutSubHeader cartItems={cartItems}/>
-        <CheckoutItems/> 
-        <CheckoutFooter cartItems={cartItems}/> 
+        <CheckoutSubHeader cartItems={cartItems} />
+        <CheckoutItems />
+        <CheckoutFooter cartItems={cartItems} />
       </div>
       <AdvertisementContainer />
       <Disclaimer />
@@ -36,18 +34,17 @@ function Checkout(props) {
 
 Checkout.propTypes = {
   cartItems: PropTypes.object,
-  cartCount: PropTypes.number
+  cartCount: PropTypes.number,
 };
 Checkout.defaultProps = {
-  cartItems: {},
-  cartCount: 0
+  cartItems: DEFAULT_OBJECT,
+  cartCount: 0,
 };
-
 
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cart.cartItems,
-    cartCount: state.cart.cartCount
+    cartCount: state.cart.cartCount,
   };
 };
 

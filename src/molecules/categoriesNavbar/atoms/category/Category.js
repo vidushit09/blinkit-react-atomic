@@ -10,7 +10,7 @@ function Category(props) {
     <Link to="/">
       <li
         className={`${styles.listItem} ${stylesCommon.displayFlex}`}
-        onClick={()=>categoryClick(props.category)}
+        onClick={() => categoryClick(props.category)}
       >
         {category}
       </li>
@@ -20,7 +20,7 @@ function Category(props) {
 Category.propTypes = {
   category: PropTypes.string,
 };
-Category.defaultProps={
-  category:undefined
-}
+Category.defaultProps = {
+  category: undefined,
+};
 export default Category;

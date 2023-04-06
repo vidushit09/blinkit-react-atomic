@@ -22,9 +22,9 @@ AdvertisementCard.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string,
 };
-AdvertisementCard.defaultProps={
-  title:undefined,
-  content:undefined
-}
+AdvertisementCard.defaultProps = {
+  title: undefined,
+  content: undefined,
+};
 
 export default AdvertisementCard;

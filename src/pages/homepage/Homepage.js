@@ -7,16 +7,15 @@ import Disclaimer from "../../atoms/disclaimer";
 import Footer from "../../organisms/footer";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { DEFAULT_OBJECT } from "../../constants/constants.general";
 
 function Homepage(props) {
-  const {
-    cartItems
-  } = props;
+  const { cartItems } = props;
   return (
     <>
       <TopNavbar cartItems={cartItems} />
-      <CategoriesNavbar/>
-      <ProductsContainer/>
+      <CategoriesNavbar />
+      <ProductsContainer />
       <AdvertisementContainer />
       <Disclaimer />
       <Footer />
@@ -26,17 +25,17 @@ function Homepage(props) {
 
 Homepage.propTypes = {
   cartItems: PropTypes.object,
-  cartCount: PropTypes.number
+  cartCount: PropTypes.number,
 };
 Homepage.defaultProps = {
-  cartItems: {},
-  cartCount: 0
+  cartItems: DEFAULT_OBJECT,
+  cartCount: 0,
 };
 
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cart.cartItems,
-    cartCount: state.cart.cartCount
+    cartCount: state.cart.cartCount,
   };
 };
 

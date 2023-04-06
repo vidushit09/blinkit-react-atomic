@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./updateButton.module.css";
 import { connect } from "react-redux";
-var _ = require('lodash');
+import { DEFAULT_OBJECT } from "../../constants/constants.general";
+var _ = require("lodash");
 
 class UpdateButton extends React.Component {
   constructor(props) {
@@ -13,8 +14,18 @@ class UpdateButton extends React.Component {
   }
 
   render() {
-    const { count, displayDefault, product, id, firstAdd, plusone, minusone, cartItems } = this.props;
-    let val = 0,showDefault = true;
+    const {
+      count,
+      displayDefault,
+      product,
+      id,
+      firstAdd,
+      plusone,
+      minusone,
+      cartItems,
+    } = this.props;
+    let val = 0,
+      showDefault = true;
     if (cartItems?.get(id) != undefined) {
       showDefault = false;
       val = cartItems?.get(id).quantity;
@@ -57,25 +68,22 @@ class UpdateButton extends React.Component {
 UpdateButton.propTypes = {
   id: PropTypes.number,
   count: PropTypes.number,
-  displayDefault: PropTypes.bool, 
+  displayDefault: PropTypes.bool,
   product: PropTypes.object,
-  cartItems: PropTypes.object
+  cartItems: PropTypes.object,
 };
 UpdateButton.defaultProps = {
   id: undefined,
   count: 0,
-  displayDefault: true, 
-  product: {},
-  cartItems: {}
+  displayDefault: true,
+  product: DEFAULT_OBJECT,
+  cartItems: DEFAULT_OBJECT,
 };
 
 const mapStateToProps = (state) => {
   return {
-    cartItems: state.cart.cartItems
+    cartItems: state.cart.cartItems,
   };
 };
 
-
-
 export default connect(mapStateToProps)(UpdateButton);
-

@@ -6,9 +6,12 @@ import stylesCommon from "../../../../App.module.css";
 
 function CategoryMore(props) {
   const { categories, categoryClick } = props;
-  let list= categoryMoreHelper(categories, categoryClick);
+  let list = categoryMoreHelper(categories, categoryClick);
   return (
-    <li className={`${styles.listItem} ${stylesCommon.displayFlex}`} id={styles.more}>
+    <li
+      className={`${styles.listItem} ${stylesCommon.displayFlex}`}
+      id={styles.more}
+    >
       More
       <i className="fa fa-angle-down"></i>
       <ul id={styles.dropdown}>{list}</ul>
@@ -18,7 +21,7 @@ function CategoryMore(props) {
 CategoryMore.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.string),
 };
-CategoryMore.defaultProps={
-  categories:[]
-}
+CategoryMore.defaultProps = {
+  categories: [],
+};
 export default CategoryMore;

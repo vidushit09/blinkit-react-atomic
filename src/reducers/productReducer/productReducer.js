@@ -25,10 +25,10 @@ const productReducer = (state = productState, action) => {
         ...state,
         category: action.category,
         subCategory: HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
-        products: _.get(data,'products').filter(
+        products: _.get(data, "products").filter(
           (obj) => obj.category == action.category
         ),
-        subCategories: _.get(data,'leftTabCategories').filter(
+        subCategories: _.get(data, "leftTabCategories").filter(
           (obj) => obj.category == action.category
         ),
       };
@@ -39,7 +39,7 @@ const productReducer = (state = productState, action) => {
         return {
           ...state,
           subCategory: HOMEPAGE_CONSTANTS.DEFAULT_SUB_CATEGORY,
-          products: _.get(data,'products').filter(
+          products: _.get(data, "products").filter(
             (obj) => obj.category == state.category
           ),
         };
@@ -47,7 +47,7 @@ const productReducer = (state = productState, action) => {
         return {
           ...state,
           subCategory: action.subCategory,
-          products: _.get(data,'products').filter(
+          products: _.get(data, "products").filter(
             (obj) => obj.subCategory == action.subCategory
           ),
         };

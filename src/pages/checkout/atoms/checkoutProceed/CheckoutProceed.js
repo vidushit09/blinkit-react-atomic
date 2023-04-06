@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./checkoutProceed.module.css";
 import PropTypes from "prop-types";
 import { getCartCount } from "../../../../helpers/getCartCount";
+import { DEFAULT_OBJECT } from "../../../../constants/constants.general";
 
 function CheckoutProceed(props) {
   let { cartOriginal, cartDiscount, cartItems } = props;
@@ -31,7 +32,7 @@ CheckoutProceed.propTypes = {
 CheckoutProceed.defaultProps = {
   cartOriginal: 0,
   cartDiscount: 0,
-  cartItems: {},
+  cartItems: DEFAULT_OBJECT,
 };
 
 export default CheckoutProceed;

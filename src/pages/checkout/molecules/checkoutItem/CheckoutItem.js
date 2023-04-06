@@ -6,13 +6,14 @@ import { addToCart } from "../../../../actions/cartActions";
 import { removeFromCart } from "../../../../actions/cartActions";
 import { connect } from "react-redux";
 import { calculateDiscountedPrice } from "../../../../helpers/calculateDiscountedPrice";
+import { DEFAULT_OBJECT } from "../../../../constants/constants.general";
 
 class CheckoutItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       displayDefault: false,
-      count: this.props.product.quantity
+      count: this.props.product.quantity,
     };
   }
 
@@ -57,13 +58,9 @@ class CheckoutItem extends React.Component {
             </div>
             <div>
               <div className={styles.itemName}>{name}</div>
-              <div className={styles.container__itemWeight}>
-                {quantity} kg
-              </div>
+              <div className={styles.container__itemWeight}>{quantity} kg</div>
               <div className={styles.item__price}>
-                <div className={styles.discountedPrice}>
-                  ₹{updatedPrice}
-                </div>
+                <div className={styles.discountedPrice}>₹{updatedPrice}</div>
                 <div className={styles.actualPrice}>₹{price}</div>
               </div>
             </div>
@@ -87,11 +84,11 @@ class CheckoutItem extends React.Component {
 }
 CheckoutItem.propTypes = {
   product: PropTypes.object,
-  id: PropTypes.number
+  id: PropTypes.number,
 };
 CheckoutItem.defaultProps = {
-  product: {},
-  id: 0
+  product: DEFAULT_OBJECT,
+  id: 0,
 };
 
 const mapDispatchToProps = (dispatch) => {

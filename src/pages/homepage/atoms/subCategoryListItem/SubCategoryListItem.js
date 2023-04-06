@@ -15,9 +15,9 @@ function SubCategoryListItem(props) {
             : `${styles.categoryInactive} ${stylesCommon.displayFlex}`
         }
         id={styles.subCategory}
-        onClick={()=>subCategoryClick(subCategory.subCategory)}
+        onClick={() => subCategoryClick(subCategory.subCategory)}
       >
-        <div className={styles.category__categoryImage }>
+        <div className={styles.category__categoryImage}>
           <img src={path} className={styles.categoryImage__img} />
         </div>
         {subCategory.subCategory}
@@ -26,13 +26,13 @@ function SubCategoryListItem(props) {
   );
 }
 
-SubCategoryListItem.propTypes={
-  subCategory:PropTypes.string,
-  currSubCategory:PropTypes.string
-}
-SubCategoryListItem.defaultProps={
-  subCategory:undefined,
-  currSubCategory:undefined
-}
+SubCategoryListItem.propTypes = {
+  subCategory: PropTypes.string,
+  currSubCategory: PropTypes.string,
+};
+SubCategoryListItem.defaultProps = {
+  subCategory: undefined,
+  currSubCategory: undefined,
+};
 
 export default SubCategoryListItem;

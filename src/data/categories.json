@@ -1,38 +1,40 @@
 {
-    "categories":[{
-        "1":"Vegetables and Fruits"
+  "categories": [
+    {
+      "1": "Vegetables and Fruits"
     },
     {
-        "2":"Dairy & Breakfast"
+      "2": "Dairy & Breakfast"
     },
     {
-        "3":"Munchies"
+      "3": "Munchies"
     },
     {
-        "4":"Cold Drinks & Juices"
+      "4": "Cold Drinks & Juices"
     },
     {
-        "5":"Instant and Frozen Food"
+      "5": "Instant and Frozen Food"
     },
     {
-        "6":"Tea, Coffee & Health Drinks"
+      "6": "Tea, Coffee & Health Drinks"
     },
     {
-        "7":"Bakery & Biscuits"
+      "7": "Bakery & Biscuits"
     },
     {
-        "8":"Sweet Tooth"
+      "8": "Sweet Tooth"
     },
     {
-        "9":"Atta, Rice & Dal"
+      "9": "Atta, Rice & Dal"
     },
     {
-        "10":"Dry Fruits, Masala & Oil"
+      "10": "Dry Fruits, Masala & Oil"
     },
     {
-        "11":"Sauces & Spreads"
+      "11": "Sauces & Spreads"
     },
     {
-        "12":"Chicken, Meat & Fish"
+      "12": "Chicken, Meat & Fish"
     }
-]}
+  ]
+}

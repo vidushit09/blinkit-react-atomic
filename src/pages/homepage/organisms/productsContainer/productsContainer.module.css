@@ -1,8 +1,8 @@
-.productsContainer{
-    width: 111.94rem;
-    margin: auto;
-    display: flex;
-    border: 0.15rem solid #d6d6d6;
-    border-top: 0rem;
-    border-radius: 0rem 0rem 0.45rem 0.45rem;
-  }
+.productsContainer {
+  width: 111.94rem;
+  margin: auto;
+  display: flex;
+  border: 0.15rem solid #d6d6d6;
+  border-top: 0rem;
+  border-radius: 0rem 0rem 0.45rem 0.45rem;
+}

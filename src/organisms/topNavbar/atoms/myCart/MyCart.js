@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { cartInner } from "./helpers/cartInner";
 import styles from "./myCart.module.css";
+import { DEFAULT_OBJECT } from "../../../../constants/constants.general";
 
 function MyCart(props) {
-  let { cartItems} = props;
+  let { cartItems } = props;
   return (
     <>
       <Link to="/checkout">
@@ -19,12 +20,10 @@ function MyCart(props) {
 }
 
 MyCart.propTypes = {
-  cartItems: PropTypes.object
+  cartItems: PropTypes.object,
 };
 MyCart.defaultProps = {
-  cartItems: {}
+  cartItems: DEFAULT_OBJECT,
 };
-
-
 
 export default MyCart;

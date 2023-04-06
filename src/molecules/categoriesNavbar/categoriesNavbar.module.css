@@ -1,13 +1,11 @@
-
-.categoryList{
-    margin: 0rem;
-    padding: 0rem;
-    justify-content: center;
-    font-size: 1.51rem;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 6rem;
-    border-bottom: 0.15rem solid #d6d6d6;
-    list-style: none;
-    letter-spacing: 0.07rem;
-  }
-  
+.categoryList {
+  margin: 0rem;
+  padding: 0rem;
+  justify-content: center;
+  font-size: 1.51rem;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 6rem;
+  border-bottom: 0.15rem solid #d6d6d6;
+  list-style: none;
+  letter-spacing: 0.07rem;
+}

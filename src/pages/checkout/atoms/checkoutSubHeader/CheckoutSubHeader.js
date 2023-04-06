@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./checkoutSubHeader.module.css";
 import PropTypes from "prop-types";
 import { getCartCount } from "../../../../helpers/getCartCount";
+import { DEFAULT_OBJECT } from "../../../../constants/constants.general";
 
 function CheckoutSubHeader(props) {
   let { cartItems } = props;
@@ -17,9 +18,7 @@ CheckoutSubHeader.propTypes = {
   cartItems: PropTypes.object,
 };
 CheckoutSubHeader.defaultProps = {
-  cartItems: {},
+  cartItems: DEFAULT_OBJECT,
 };
-
-
 
 export default CheckoutSubHeader;
