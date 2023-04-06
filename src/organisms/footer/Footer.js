@@ -1,6 +1,6 @@
 import React from "react";
-import Copyright from "../../atoms/copyright";
-import DownloadOptions from "../../molecules/downloadOptions";
+import Copyright from "./atoms/copyright";
+import DownloadOptions from "./molecules/downloadOptions";
 import styles from "./footer.module.css";
 import stylesCommon from "../../App.module.css";
 

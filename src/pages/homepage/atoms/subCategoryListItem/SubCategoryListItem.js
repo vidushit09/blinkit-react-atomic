@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 function SubCategoryListItem(props) {
   const { subCategory, currSubCategory, subCategoryClick } = props;
   let path = "http://127.0.0.1:3000/" + subCategory.categoryThumbnail;
-  console.log(styles.categoryActive, styles.categoryInactive);
   return (
     <>
       <li

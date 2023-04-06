@@ -6,8 +6,7 @@ export const cartInner=(cartItems)=> {
   if(cartItems.size==0){
     return (
       <>
-        <div className={styles.mycart}>My Cart</div>
-        <div className={styles.mycart__text}></div>
+        <div className={styles.mycart__text}>My Cart</div>
       </>
     );
   }

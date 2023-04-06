@@ -1,7 +1,7 @@
 import React from "react";
-import DownloadButton from "../../atoms/downloadButton";
+import DownloadButton from "./atoms/downloadButton";
 import styles from "./downloadOptions.module.css";
-import stylesCommon from "../../App.module.css";
+import stylesCommon from "../../../../App.module.css";
 
 function DownloadOptions() {
     return (
