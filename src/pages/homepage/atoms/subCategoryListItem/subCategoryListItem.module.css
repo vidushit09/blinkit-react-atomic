@@ -34,7 +34,7 @@
   border-left: 0.6rem solid white;
 }
 
-li:hover :not(.categoryActive) {
+#subCategory:hover :not(.categoryActive) {
   background-color: rgb(235, 255, 239);
   border-left: 0.6rem solid rgb(235, 255, 239);
   cursor: pointer;

@@ -15,6 +15,7 @@ function SubCategoryListItem(props) {
             ? `${styles.categoryActive} ${stylesCommon.displayFlex}`
             : `${styles.categoryInactive} ${stylesCommon.displayFlex}`
         }
+        id={styles.subCategory}
         onClick={()=>subCategoryClick(subCategory.subCategory)}
       >
         <div className={styles.category__categoryImage }>
