@@ -43,8 +43,6 @@ const cartReducer = (state = cartState, action) => {
     case REMOVE_FROM_CART: {
       let cartItems = state.cartItems;
       let product = cartItems.get(action.payload.id);
-      let originalPrice = product["original"];
-      let discountedPrice = product["discountedPrice"];
       let newData;
       if (product["quantity"] == 1) {
         newData = state.cartItems;

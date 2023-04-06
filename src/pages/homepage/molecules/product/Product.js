@@ -4,7 +4,7 @@ import { calculateDiscountedPrice } from "../../../../helpers/calculateDiscounte
 import styles from "./product.module.css";
 import PropTypes from "prop-types";
 import { addToCart } from "../../../../actions/cartActions";
-import { removeFromCart } from "../../../../actions/cartActions"
+import { removeFromCart } from "../../../../actions/cartActions";
 import { connect } from "react-redux";
 import productReader from "../../../../readers/productReader";
 
@@ -54,26 +54,31 @@ class Product extends React.Component {
     this.props.removeFromCart(productReader.id(product));
   };
   render() {
-    let { product, addToCart, removeFromCart } =this.props;
+    let { product, addToCart, removeFromCart } = this.props;
     let path = "http://127.0.0.1:3000/" + productReader.thumbnail(product);
     let displayDefault = this.state.displayDefault;
 
     if (parseInt(this.state.count) != 0) {
       displayDefault = false;
     }
+    let sourcedAt;
+    if (productReader.sourcedAt(product) != undefined) {
+      sourcedAt = (
+        <div className={styles.sourcedAt}>
+          Sourced at {productReader.sourcedAt(product)}
+        </div>
+      );
+    }
+
     return (
       <div className={styles.item}>
-        <div style={{ display: "none" }}>
-          {productReader.id(product)}
-        </div>
+        <div style={{ display: "none" }}>{productReader.id(product)}</div>
         <div className={styles.itemImage}>
           <div className={styles.discount}>
             {productReader.discount(product)}% OFF{" "}
           </div>
           <img src={path} className={styles.item__img} />
-          <div className={styles.sourcedAt}>
-            Sourced at {productReader.sourcedAt(product)}
-          </div>
+          {sourcedAt}
         </div>
         <div className={styles.itemName}>{productReader.name(product)}</div>
         <div className={styles.itemWeight}>
@@ -82,7 +87,11 @@ class Product extends React.Component {
         <div className={styles.itemFooter}>
           <div className={styles.priceDetails}>
             <div className={styles.discountedPrice}>
-              ₹{calculateDiscountedPrice(productReader.price(product), productReader.discount(product))}
+              ₹
+              {calculateDiscountedPrice(
+                productReader.price(product),
+                productReader.discount(product)
+              )}
             </div>
             <div className={styles.actuaPrice}>
               ₹{productReader.price(product)}
@@ -105,13 +114,12 @@ class Product extends React.Component {
 
 Product.propTypes = {
   product: PropTypes.object,
-  count: PropTypes.number
+  count: PropTypes.number,
 };
 Product.defaultProps = {
   product: undefined,
-  count: 0
+  count: 0,
 };
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
