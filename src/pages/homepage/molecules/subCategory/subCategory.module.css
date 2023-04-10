@@ -1,4 +1,4 @@
-#category {
+.category {
   margin: 0rem;
   padding: 0rem;
 }
@@ -39,7 +39,7 @@
   border-left: 0.6rem solid white;
 }
 
-#category li:hover:not(.categoryActive) {
+.category li:hover:not(.categoryActive) {
   background-color: rgb(235, 255, 239);
   border-left: 0.6rem solid rgb(235, 255, 239);
   cursor: pointer;
