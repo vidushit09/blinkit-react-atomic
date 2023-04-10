@@ -11,7 +11,7 @@ import Footer from "../../organisms/footer";
 import PropTypes from "prop-types";
 import styles from "./checkout.module.css";
 import { connect } from "react-redux";
-import { DEFAULT_OBJECT } from "../../constants/constants.general";
+import { DEFAULT_OBJECT } from "../../constants/general";
 
 function Checkout(props) {
   const { cartItems } = props;

@@ -6,7 +6,7 @@ import MyCart from "./atoms/myCart";
 import PropTypes from "prop-types";
 import styles from "./topNavbar.module.css";
 import stylesCommon from "../../App.module.css";
-import { DEFAULT_OBJECT } from "../../constants/constants.general";
+import { DEFAULT_OBJECT } from "../../constants/general";
 
 function TopNavbar(props) {
   let { cartItems } = props;

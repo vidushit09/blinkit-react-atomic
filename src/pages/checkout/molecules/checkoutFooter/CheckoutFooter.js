@@ -4,7 +4,7 @@ import styles from "./checkoutFooter.module.css";
 import PropTypes from "prop-types";
 import { getCartTotalDiscounted } from "../../../../helpers/getCartTotalDiscounted";
 import { getCartTotal } from "../../../../helpers/getCartTotal";
-import { DEFAULT_OBJECT } from "../../../../constants/constants.general";
+import { DEFAULT_OBJECT } from "../../../../constants/general";
 
 function CheckoutFooter(props) {
   const { cartItems } = props;

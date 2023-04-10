@@ -7,7 +7,7 @@ import Disclaimer from "../../atoms/disclaimer";
 import Footer from "../../organisms/footer";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { DEFAULT_OBJECT } from "../../constants/constants.general";
+import { DEFAULT_OBJECT } from "../../constants/general";
 
 function Homepage(props) {
   const { cartItems } = props;

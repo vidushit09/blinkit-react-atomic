@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./updateButton.module.css";
 import { connect } from "react-redux";
-import { DEFAULT_OBJECT } from "../../constants/constants.general";
+import { DEFAULT_OBJECT } from "../../constants/general";
 
 class UpdateButton extends React.Component {
   constructor(props) {

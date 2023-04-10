@@ -6,7 +6,7 @@ import { addToCart } from "../../../../actions/cartActions";
 import { removeFromCart } from "../../../../actions/cartActions";
 import { connect } from "react-redux";
 import { calculateDiscountedPrice } from "../../../../helpers/calculateDiscountedPrice";
-import { DEFAULT_OBJECT } from "../../../../constants/constants.general";
+import { DEFAULT_OBJECT } from "../../../../constants/general";
 
 class CheckoutItem extends React.Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import data from "../../data/data.json";
-import { HOMEPAGE_CONSTANTS } from "../../constants/constants.general";
+import { HOMEPAGE_CONSTANTS } from "../../constants/general";
 import {
   CATEGORY_CLICK,
   SUB_CATEGORY_CLICK,

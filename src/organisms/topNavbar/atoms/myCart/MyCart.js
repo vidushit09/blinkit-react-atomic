@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { cartInner } from "./helpers/cartInner";
 import styles from "./myCart.module.css";
-import { DEFAULT_OBJECT } from "../../../../constants/constants.general";
+import { DEFAULT_OBJECT } from "../../../../constants/general";
 
 function MyCart(props) {
   let { cartItems } = props;
