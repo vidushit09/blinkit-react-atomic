@@ -16,7 +16,7 @@ function SubCategory(props) {
 
   let path = "http://127.0.0.1:3000/" + subCategories[0].categoryThumbnail;
   return (
-    <ul className={styles.category}>
+    <ul id={styles.category} >
       <li
         className={
           currSubCategory == "All"

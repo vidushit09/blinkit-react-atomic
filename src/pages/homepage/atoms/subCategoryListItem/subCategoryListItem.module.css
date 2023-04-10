@@ -33,9 +33,3 @@
   border-bottom: 0.12rem solid #eee;
   border-left: 0.6rem solid white;
 }
-
-#subCategory:hover :not(.categoryActive) {
-  background-color: rgb(235, 255, 239);
-  border-left: 0.6rem solid rgb(235, 255, 239);
-  cursor: pointer;
-}
