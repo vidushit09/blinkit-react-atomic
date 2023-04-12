@@ -1,0 +1,19 @@
+:root {
+  font-size: 10px;
+}
+body {
+  margin: 0rem;
+  padding: 0rem;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.displayFlex {
+  display: flex;
+  align-items: center;
+}
+
+button:hover {
+  cursor: pointer;
+}
